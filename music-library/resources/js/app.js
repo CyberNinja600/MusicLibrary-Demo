@@ -12,7 +12,7 @@ import PlaylistShowcase from './components/playlistshowcase.vue'
 import RecentPlaylist from './components/recentplaylist.vue'
 import YourPlayListLeftNav from './components/yourplaylistleftnav.vue'
 import SongSlider from './components/songslider.vue'
-
+import UploadSong from './components/uploadsong.vue'
 document.addEventListener('DOMContentLoaded', function() {
 
     //component for home page
@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadApp = createApp({})
         .component('left-nav-bar', LeftNavBar)
         .component('music-player', MusicPlayer)
+        .component('upload-song', UploadSong)
         .component('search-bar', SearchBar);
+
 
     // Mount the upload app if #upload element exists
     const uploadElement = document.getElementById('upload');
