@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusicUploadController;
 
 /*
@@ -28,5 +28,17 @@ Route::get('/upload', [App\Http\Controllers\UploadController::class, 'index'])->
 
 // upload function
 Route::post('/upload-song', [MusicUploadController::class, 'uploadSong']);
+
+
+
+
+use App\Http\Controllers\SongInfoController;
+Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
+
+
+use App\Http\Controllers\FeaturingController;
+Route::get('/featuring-users', [FeaturingController::class,'index']);
+
+
 
 

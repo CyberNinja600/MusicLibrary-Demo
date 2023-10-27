@@ -85,12 +85,12 @@
                     <div class=" right-0 ">
     
     
-                        <svg v-if="inputValue == 100" class="w-7 hidden sm:block md:block lg:block xl:block 2xl:block px-1 sm:px-1 md:px-1 lg:px-1 xl:px-1 2xl:px-1  fill-neutral-50 active:fill-cyan-200 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                        <svg v-if="inputValue >= 50" class="w-7 hidden sm:block md:block lg:block xl:block 2xl:block px-1 sm:px-1 md:px-1 lg:px-1 xl:px-1 2xl:px-1  fill-neutral-50 active:fill-cyan-200 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                             <path d="M10.836.357a1.978 1.978 0 0 0-2.138.3L3.63 5H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h1.63l5.07 4.344a1.985 1.985 0 0 0 2.142.299A1.98 1.98 0 0 0 12 15.826V2.174A1.98 1.98 0 0 0 10.836.357Zm2.728 4.695a1.001 1.001 0 0 0-.29 1.385 4.887 4.887 0 0 1 0 5.126 1 1 0 0 0 1.674 1.095A6.645 6.645 0 0 0 16 9a6.65 6.65 0 0 0-1.052-3.658 1 1 0 0 0-1.384-.29Zm4.441-2.904a1 1 0 0 0-1.664 1.11A10.429 10.429 0 0 1 18 9a10.465 10.465 0 0 1-1.614 5.675 1 1 0 1 0 1.674 1.095A12.325 12.325 0 0 0 20 9a12.457 12.457 0 0 0-1.995-6.852Z"/>
                         </svg>
     
     
-                        <svg v-else-if="inputValue < 99 && inputValue>0" class="w-7  overflow-visible hidden sm:block md:block lg:block xl:block 2xl:block px-1 sm:px-1 md:px-1 lg:px-1 xl:px-1 2xl:px-1  fill-neutral-50 active:fill-cyan-200 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18">
+                        <svg v-else-if="inputValue < 50 && inputValue>0" class="w-7  overflow-visible hidden sm:block md:block lg:block xl:block 2xl:block px-1 sm:px-1 md:px-1 lg:px-1 xl:px-1 2xl:px-1  fill-neutral-50 active:fill-cyan-200 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18">
                             <path class="cls-1" d="m10.84.19c-.71-.33-1.55-.21-2.14.3L3.63,4.83h-1.63c-1.1,0-2,.9-2,2v4c0,1.1.9,2,2,2h1.63l5.07,4.34c.59.51,1.43.63,2.14.3.71-.32,1.16-1.04,1.16-1.82V2c0-.78-.45-1.49-1.16-1.82Z"/>
                             <path class="cls-1" d="m13.56,4.88c-.46.3-.59.92-.29,1.39.97,1.57.97,3.55,0,5.13-.3.46-.17,1.08.29,1.38.46.3,1.08.17,1.38-.29.7-1.09,1.07-2.36,1.05-3.66.01-1.3-.35-2.57-1.05-3.66-.3-.46-.92-.59-1.38-.29Z"/>
                         </svg>

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 
-
 @section('content')
 <div class="flex flex-col min-h-screen z-10 " id="home">
     
@@ -18,5 +17,4 @@
 <div class="z-30">
     <music-player> </music-player>
 </div> 
-
 @endsection
