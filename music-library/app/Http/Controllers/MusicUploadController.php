@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
 class MusicUploadController extends Controller
 {
     public function uploadSong(Request $request)
-    {   
+    {
+        // Generate a random 10-digit alphanumeric string
+        $randomString = substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', 10)), 0, 10);
+
         // Validate the uploaded file
         $request->validate([
-            'file' => 'required|file|mimes:mp3,wav,wma,ogg|max:10000',// Allow only MP3 files with a maximum size of 10MB
+            'file' => 'required|file|mimes:mp3,wav,wma,ogg|max:10000000', // Allow only MP3 files with a maximum size of 10MB
         ]);
 
-        // Store the uploaded file in the storage folder
+        // Store the uploaded file in the storage folder with the random string as a prefix
         $file = $request->file('file');
-        $fileName = time() . '_' . $file->getClientOriginalName();
+        $fileName = $randomString . '_' . time() . '_' . $file->getClientOriginalName();
         $file->storeAs('songs', $fileName, 'public');
 
         // Return a response, you can modify this as needed

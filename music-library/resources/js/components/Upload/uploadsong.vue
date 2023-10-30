@@ -1,14 +1,15 @@
 <template>
+    <div class="w-[640px] sm:w-screen">
     <!-- <div class="text-white"> {{user.name}}</div> -->
-    <div id='upload' class="bg-gradient-to-r from-gray-50 to-gray-50 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-screen h-screen">
+    <div id='upload' class=" bg-gradient-to-r from-gray-50 to-gray-50 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-min-[375px]   sm:w-screen h-screen">
         <div class="flex items-center -mt-[40px] justify-center h-screen flex-wrap">
             
-            <div v-if="uploadMessage" class="bg-gray-50 bg-opacity-30 dark:bg-neutral-800  p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-[300px] h-[380px] sm:w-[350px] sm:h-[400px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[500px] xl:w-[600px] xl:h-[600px] 2xl:w-[650px] 2xl:h-[650px]">
+            <div v-if="uploadMessage" class="bg-gray-50 bg-opacity-30 dark:bg-neutral-800  relative  p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 w-[300px] h-[510px] sm:w-[350px] sm:h-[510px] md:w-[450px] md:h-[530px] lg:w-[550px] lg:h-[550px] xl:w-[600px] xl:h-[600px] 2xl:w-[650px] 2xl:h-[650px] ">
                 <uploadsong-info :received-filename="filename" :received-Userid="userid"> </uploadsong-info>
             </div>
             
-            <div v-else class="bg-gray-50 bg-opacity-30 dark:bg-neutral-800  p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-[300px] h-[380px] sm:w-[350px] sm:h-[400px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[500px] xl:w-[600px] xl:h-[600px] 2xl:w-[650px] 2xl:h-[650px]">
-                <h2 class=" text-lg font-semibold mb-4 text-neutral-800 dark:text-neutral-50 bg-transparent">Upload Musics</h2>
+            <div v-else class=" bg-gray-50 bg-opacity-30 dark:bg-neutral-800  p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-min h-[510px] sm:w-[350px] sm:h-[510px] md:w-[450px] md:h-[530px] lg:w-[550px] lg:h-[550px] xl:w-[600px] xl:h-[600px] 2xl:w-[650px] 2xl:h-[650px]">
+                <h2 class="text-lg font-semibold my-4 text-neutral-800 dark:text-neutral-50 bg-transparent">Upload Musics</h2>
                 <div class="grid gap-2 justify-items-center content-between bg-transparent my-[20px] sm:my-[30px] md:my-[30px] lg:my-[60px] xl:my-[100px] 2xl:my-[100px]">
                     <div class="">
                         <button class=" text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">
@@ -22,17 +23,17 @@
                         <div class="text-gray-600 dark:text-neutral-50 mb-6 text-center font-semibold">Drag and drop music files to upload </div>
                         <div class="text-gray-600 dark:text-neutral-300 mb-6 text-center">Your music will be private until you publish them.</div>
                     </div>
-                    <div>
-                        <input type="file" ref="fileInput" style="display: none" @change="uploadFile">
+                    <div class="">
+                        <input type="file" ref="fileInput" style="display: none" @change="uploadFile" name="fileinputname">
                         <button @click="openFileInput" class="bg-gray-800 hover:bg-gray-700 dark:bg-neutral-200 dark:hover:bg-gray-300 text-neutral-50 dark:text-neutral-900 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">
-                            Select Files
+                            <p>Select Files</p>
                         </button>
                     </div>
+                    <p class="absolute bottom-0 text-transparent select-none  ">Select Files</p>
                 </div>
             </div>
-
-
         </div>
+    </div>
     </div>
 </template>
 
@@ -73,7 +74,8 @@ export default {
             axios.post('/upload-song', formData)
                 .then(response => {
                     // Handle the success response as needed
-                    console.log(response.data.message);
+                    // console.log(response.data.message);
+                    console.log("You song has been uploaded")
                     this.uploadMessage = 'Upload Successful';
                     this.filename = response.data.message
                     this.userid = this.user.id

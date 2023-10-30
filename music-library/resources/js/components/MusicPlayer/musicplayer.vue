@@ -1,9 +1,15 @@
 <template>
-    <div class="select-none bg-gradient-to-r  from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-screen ">
-        <div class="flex items-stretch ">
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <div class="overflow-x-auto place-items-bottom">
+    <div class="select-none bg-gradient-to-r from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900 w-min-[375px] w-min sm:w-screen lg:w-screen md:w-scren 2xl:w-screen xl:w-screen ">
+        <div class="flex  items-stretch ">
     
             <!-- song details-->
-            <div class=" basis-1/4 w-[400px] bg-transparent"> <!-- this line connected to music player-->
+            <div class="basis-1/4 w-[400px] bg-transparent"> <!-- this line connected to music player-->
     
                     <button class = "sm:px-4 md:px-4 lg:px-4 xl:px-4 2xl:px-4 py-3.5 flex bg-transparent ">
     
@@ -30,7 +36,7 @@
     
     
             <!-- Music Player-->
-            <div class="basis-2/4 w-fit justify-self-stretch">
+            <div class="basis-2/4 justify-self-stretch touch-pan-x">
                 <div class="inset-x-0 bg-transparent">
                     <!--- forward backward playpause-->
                     <div class="flex justify-center items-center py-3.5 ">
@@ -80,7 +86,7 @@
                 </div>
             </div>
     
-            <div class="flex place-items-center basis-1/4 w-[400px] bg-transparent ">
+            <div class="flex relative place-items-center basis-1/4 w-screen  ">
                 <div class="flex absolute right-3 ">
                     <div class=" right-0 ">
     
@@ -112,6 +118,9 @@
     
         </div>
     </div>
+    </div>
+    </body>
+    </html>
     </template>
     
     <script>

@@ -39,7 +39,7 @@
                                                         type="text" 
                                                         id="name" 
                                                         name="name" 
-                                                        class="@error('name') is-invalid @enderror peer bg-transparent h-10 w-full rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 focus:outline-none focus:border-rose-600" 
+                                                        class="@error('name') is-invalid @enderror peer bg-transparent h-10 w-full rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 dark:focus:ring-cyan-600 focus:ring-sky-600 focus:outline-none focus:border-rose-600" 
                                                         placeholder="name"
                                                         value="{{ old('name') }}"
                                                         required
@@ -48,7 +48,7 @@
                                                         />
 
                                                     <label for="name" 
-                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
+                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all"
                                                         name = "name"
                                                         >
                                                         {{ __('Name') }}
@@ -70,7 +70,7 @@
                                                         type="email" 
                                                         id="email" 
                                                         name="email" 
-                                                        class="@error('email') is-invalid @enderror peer bg-transparent h-10 w-full rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 focus:outline-none focus:border-rose-600" 
+                                                        class="@error('email') is-invalid @enderror peer bg-transparent h-10 w-full rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 dark:focus:ring-cyan-600 focus:ring-sky-600 focus:outline-none focus:border-rose-600" 
                                                         placeholder="email"
                                                         value="{{ old('email') }}" 
                                                         required 
@@ -78,7 +78,7 @@
                                                         />
 
                                                     <label for="email" 
-                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
+                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all"
                                                         >
                                                         {{ __('Email Address') }}
                                                     </label>
@@ -98,14 +98,14 @@
                                                         type="password" 
                                                         id="password" 
                                                         name="password" 
-                                                        class="@error('password') is-invalid @enderror peer bg-transparent h-10 w-full rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 focus:outline-none focus:border-rose-600" 
+                                                        class="@error('password') is-invalid @enderror peer bg-transparent h-10 w-full rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 dark:focus:ring-cyan-600 focus:ring-sky-600 focus:outline-none focus:border-rose-600" 
                                                         placeholder="Password"
                                                         required 
                                                         autocomplete="new-password"
                                                         />
 
                                                     <label for="password" 
-                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
+                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all"
                                                         >
                                                         {{ __('Password') }}
                                                     </label>
@@ -124,14 +124,14 @@
                                                         type="password" 
                                                         id="password-confirm" 
                                                         name="password_confirmation" 
-                                                        class="peer bg-transparent h-10 w-full rounded-lg text-gray-700  dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 focus:outline-none focus:border-rose-600" 
+                                                        class="peer bg-transparent h-10 w-full rounded-lg text-gray-700  dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600" 
                                                         placeholder="Confirm password"
                                                         required 
                                                         autocomplete="new-password"
                                                         />
 
                                                     <label for="password-confirm" 
-                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
+                                                        class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all"
                                                         >
                                                         {{ __('Confirm Password') }}
                                                     </label>

@@ -18,12 +18,12 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 </head>
-<body>
-    <div id="app">
-    <div class="flex flex-wrap place-items-top h-full shadow-lg">
+<body class="w-min from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900">
+    <div id="app" >
+    <div class="flex flex-wrap place-items-top h-full shadow-lg ">
     <section class="select-none  relative mx-auto z-40">
         <!-- navbar -->
-        <nav class="flex justify-between bg-gradient-to-r from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900 text-white w-screen">
+        <nav class="flex justify-between bg-gradient-to-r from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900 text-white   sm:w-screen lg:w-screen md:w-scren 2xl:w-screen xl:w-screen ">
 
 
         @guest
@@ -38,9 +38,11 @@
                 </li>
             @endif
         @else
-        <div class="pl-5 xl:px-12 sm:px-12 py-3 flex w-full items-center">
-            <a class="flex text-xl shadow-2xl font-extrabold antialiased font-heading dark:text-neutral-50" href="\home">
-            <img class="h-10" src="img/logo/wlogo.png" alt="logo">
+        <div class="pl-5 xl:px-12 sm:px-12 py-3 flex w-full items-center ">
+            <a class=" flex text-xl shadow-2xl font-extrabold antialiased font-heading dark:text-neutral-50" href="\home">
+            <div class=" animate-spin">
+                <img class="h-[41px] " src="img/logo/wlogo-fixed-clean-ratio.png"  alt="logo">
+            </div>
             <p class="py-2 antialiased hidden lg:block xl:block 2xl:block md:block sm:block scale-75 font-mono">Music Library</p>
             </a>
 
@@ -143,7 +145,7 @@
     </section>
 </div>
 
-        <main class="fixed">
+        <main class="static sm:fixed w-min sm:w-screen ">
             @yield('content')
         </main>
     </div>

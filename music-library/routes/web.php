@@ -37,8 +37,8 @@ Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 
 
 use App\Http\Controllers\FeaturingController;
+use App\Http\Controllers\SonginfoArtistsTableController;
+
 Route::get('/featuring-users', [FeaturingController::class,'index']);
 
-
-
-
+Route::post('/songinfo-artists-table', [SonginfoArtistsTableController::class,'featureArtistname']);

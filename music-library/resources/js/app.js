@@ -3,16 +3,19 @@ import 'flowbite';
 import { createApp } from 'vue';
 import PostsIndex from './tester.vue';
 import SearchBar from './components/SearchBar.vue';
-import MusicPlayer from './components/MusicPlayer.vue';
-import LeftNavBar from './components/leftnavBar.vue';
-import HomeLibrary from './components/homelibrary.vue';
-import PlaylistShowcase from './components/playlistshowcase.vue';
-import RecentPlaylist from './components/recentplaylist.vue';
-import YourPlayListLeftNav from './components/yourplaylistleftnav.vue';
-import SongSlider from './components/songslider.vue';
-import UploadSong from './components/uploadsong.vue';
-import UploadSonginfo from './components/uploadsonginfo.vue';
-import UploadSongFeature from './components/uploadsongfeature.vue';
+import MusicPlayer from './components/MusicPlayer/musicplayer.vue';
+import SongSlider from './components/MusicPlayer/songslider.vue';
+
+
+import LeftNavBar from './components/Home/leftnavBar.vue';
+import HomeLibrary from './components/Home/homelibrary.vue';
+import PlaylistShowcase from './components/Home/playlistshowcase.vue';
+import RecentPlaylist from './components/Home/recentplaylist.vue';
+import YourPlayListLeftNav from './components/Home/yourplaylistleftnav.vue';
+
+import UploadSong from './components/Upload/uploadsong.vue';
+import UploadSonginfo from './components/Upload/uploadsonginfo.vue';
+import UploadSongFeature from './components/Upload/uploadsongfeature.vue';
 
 const app = createApp({
   // your app options
