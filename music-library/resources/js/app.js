@@ -16,6 +16,7 @@ import YourPlayListLeftNav from './components/Home/yourplaylistleftnav.vue';
 import UploadSong from './components/Upload/uploadsong.vue';
 import UploadSonginfo from './components/Upload/uploadsonginfo.vue';
 import UploadSongFeature from './components/Upload/uploadsongfeature.vue';
+import UploadSongImages from './components/Upload/uploadsongimages.vue';
 
 const app = createApp({
   // your app options
@@ -52,6 +53,7 @@ if (uploadElement) {
       SearchBar,
       UploadSonginfo,
       UploadSongFeature,
+      UploadSongImages,
     },
   });
 

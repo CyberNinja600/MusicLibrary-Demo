@@ -28,7 +28,6 @@
                                     Linkin park 
                                 </div>
                             </div>
-    >
                         </div>
     
                     </button>

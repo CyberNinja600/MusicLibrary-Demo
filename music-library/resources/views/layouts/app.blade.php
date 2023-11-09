@@ -1,8 +1,11 @@
+@php
+    use Illuminate\Support\Facades\Vite;
+@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,16 +17,25 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito">
+        <!-- Scripts -->
+        @vite(['resources/sass/app.scss'])
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
+    <style>
+        {!! Vite::content('resources/css/app.css') !!}
+    </style>
+    <script type='module'>
+        {!! Vite::content('resources/js/app.js') !!}
+    </script>
+
+        
 </head>
-<body class="w-min from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900">
-    <div id="app" >
-    <div class="flex flex-wrap place-items-top h-full shadow-lg ">
+<body class="w-min h-min">
+    <div id="app" class="h-screen" >
+    <div class="bg-gradient-to-r from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900 h-screen">
+    <div class="flex flex-wrap place-items-top shadow-lg ">
     <section class="select-none  relative mx-auto z-40">
         <!-- navbar -->
-        <nav class="flex justify-between bg-gradient-to-r from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900 text-white   sm:w-screen lg:w-screen md:w-scren 2xl:w-screen xl:w-screen ">
+        <nav class="flex justify-between  text-white   sm:w-screen lg:w-screen md:w-scren 2xl:w-screen xl:w-screen ">
 
 
         @guest
@@ -108,7 +120,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <div id="dropdown" class="  z-10 hidden  rounded-md shadow  w-40  bg-gradient-to-r from-gray-600 to-gray-600 dark:bg-gradient-to-t dark:from-neutral-800 dark:to-neutral-800 ">
+        <div id="dropdown" class=" z-10 hidden  rounded-md shadow  w-40  bg-gradient-to-r from-gray-600 to-gray-600 dark:bg-gradient-to-t dark:from-neutral-800 dark:to-neutral-800 ">
                 <div class="px-4 py-3 text-sm hover:bg-gray-500 dark:hover:bg-neutral-700 hover:rounded-t-md">
                     <div class="text-xl break-words">
                         {{ Auth::user()->name }}
@@ -149,6 +161,7 @@
             @yield('content')
         </main>
     </div>
-</body>
+    </div>
+    </body>
 
 </html>
