@@ -19,13 +19,9 @@
     <link href="https://fonts.bunny.net/css?family=Nunito">
         <!-- Scripts -->
         @vite(['resources/sass/app.scss'])
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <style>
-        {!! Vite::content('resources/css/app.css') !!}
-    </style>
-    <script type='module'>
-        {!! Vite::content('resources/js/app.js') !!}
-    </script>
+
 
         
 </head>

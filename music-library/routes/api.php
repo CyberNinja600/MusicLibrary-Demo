@@ -19,6 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+use App\Http\Controllers\FeaturingController;
+Route::get('/featuring-userAPI', [FeaturingController::class, 'index']);
+
+
 
 // routes/web.php or routes/api.php
 

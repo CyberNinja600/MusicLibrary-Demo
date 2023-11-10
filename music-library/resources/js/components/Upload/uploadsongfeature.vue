@@ -110,7 +110,7 @@ export default {
 
     onMounted(() => {
       axios
-        .get('/featuring-users')
+        .get('api/featuring-userAPI')
         .then((response) => {
           const { user } = response.data;
           state.users = user;
