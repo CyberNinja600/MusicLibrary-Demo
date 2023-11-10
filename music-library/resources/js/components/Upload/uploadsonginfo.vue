@@ -134,7 +134,7 @@ export default {
             //     filename: this.receivedFilename,
             //     uploadedby: this.receivedUserid,
             // });
-                const response = await axios.post('/uploadsonginfo', {
+                const response = await axios.post('api/uploadsonginfo', {
                     songTitle: this.songTitle,
                     // artistName: this.artistName,
                     description: this.description,

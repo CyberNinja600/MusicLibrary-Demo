@@ -153,7 +153,7 @@ export default {
 
       try{
 
-          const response = await axios.post('/songinfo-artists-table', {
+          const response = await axios.post('api/songinfo-artists-tableAPI', {
             selectedFeatureArtist: this.selectedFeatureArtist,
             receivedFilename: this.receivedFilename,
             receivedUserid: this.receivedUserid

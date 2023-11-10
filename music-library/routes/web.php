@@ -22,7 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/settings', [App\Http\Controllers\SettingsController::class, 'index'])->name('settings');
+
 Route::get('/upload', [App\Http\Controllers\UploadController::class, 'index'])->name('upload');
 
 
@@ -34,5 +34,3 @@ use App\Http\Controllers\SongInfoController;
 Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 
 
-use App\Http\Controllers\SonginfoArtistsTableController;
-Route::post('/songinfo-artists-table', [SonginfoArtistsTableController::class,'featureArtistname']);

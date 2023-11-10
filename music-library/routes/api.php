@@ -19,10 +19,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-use App\Http\Controllers\FeaturingController;
+
+use App\Http\Controllers\Api\FeaturingController; 
 Route::get('/featuring-userAPI', [FeaturingController::class, 'index']);
 
 
+use App\Http\Controllers\Api\SonginfoArtistsTableController;
+Route::post('/songinfo-artists-tableAPI', [SonginfoArtistsTableController::class,'featureArtistname']);
 
-// routes/web.php or routes/api.php
+
+
+//file handle, can't use API
+use App\Http\Controllers\Api\SongInfoController;
+Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 
