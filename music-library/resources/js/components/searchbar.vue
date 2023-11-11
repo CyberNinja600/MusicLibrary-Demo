@@ -1,7 +1,7 @@
 <template>
-    <form class="select-none  w-[150px] sm:w-[150px] md-flex md:w-[200px] lg:w-[250px] xl:w-[300px] 2xl:w-[370px] ">   
+    <form class="relative select-none rounded-lg ">   
         <label for="default-search" class=" text-sm font-medium sr-only ">Search</label>
-            <div class="absolute mt-[11px] self-center left-flex flex items-center pl-1 pointer-events-none ">
+            <div class="absolute self-center left-flex flex items-center pl-1 pointer-events-none ">
                 <svg class="w-4 ml-1 text-gray-600 dark:text-neutral-400  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>

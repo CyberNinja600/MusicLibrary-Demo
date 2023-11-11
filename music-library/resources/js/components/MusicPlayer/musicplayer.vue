@@ -5,7 +5,7 @@
     </head>
     <body>
     <div class="overflow-x-auto place-items-bottom">
-    <div class="select-none bg-gradient-to-r from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900 w-min-[375px] w-min sm:w-screen lg:w-screen md:w-scren 2xl:w-screen xl:w-screen ">
+    <div class="select-none bg-gradient-to-r from-gray-900 to-gray-700 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900 w-min-[375px] w-min xs:w-screen sm:w-screen lg:w-screen md:w-scren 2xl:w-screen xl:w-screen">
         <div class="flex  items-stretch ">
     
             <!-- song details-->
@@ -14,7 +14,7 @@
                     <button class = "sm:px-4 md:px-4 lg:px-4 xl:px-4 2xl:px-4 py-3.5 flex bg-transparent ">
     
                         <!--Albumb picture -->
-                        <div class="shadow-md shadowl-2xl">
+                        <div class="shadow-md shadowl-2xl ">
                             <img src='\img\testartwork\Cover.jpg' ref="albumImage" class="shadow-2xl hidden sm:block md:block lg:block xl:block 2xl:block rounded-lg " alt="Girl in a jacket" width="60" />
                         </div>
     
@@ -69,7 +69,7 @@
     
                     <!-- song - slider-->
 
-                    <div class="justify-center items-center flex flex-col z-10 " >
+                    <div class="justify-center items-center flex flex-col z-10" >
                         <!-- <input type="range" id="song-percentage-played " class="slider h-2  w-[200px] sm:w-[240px] md:w-[300px] lg:w-[350px] xl:w-[500px] 2xl:w-[600px] mb-1  outline-neutral-50 accent-neutral-50  active:accent-cyan-600" min="0" max="100"  value="100"/> 
                          -->
                         <song-slider> </song-slider>

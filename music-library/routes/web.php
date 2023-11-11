@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MusicUploadController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +27,9 @@ Route::get('/upload', [App\Http\Controllers\UploadController::class, 'index'])->
 
 
 // upload function
+use App\Http\Controllers\MusicUploadController;
 Route::post('/upload-song', [MusicUploadController::class, 'uploadSong']);
 
 
-use App\Http\Controllers\SongInfoController;
-Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 
 

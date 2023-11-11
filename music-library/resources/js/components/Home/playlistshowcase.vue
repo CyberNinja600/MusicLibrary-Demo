@@ -9,10 +9,10 @@
         </div>
 
         
-        <div class=" bg-transparent flex justify-around flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row place-items-stretch  scroll-container custom-scrollbar dark:darkcustom-scrollbar ">
+        <div class=" bg-transparent flex justify-around flex-col  sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row place-items-stretch  scroll-container custom-scrollbar dark:darkcustom-scrollbar ">
 
             <!--- loop until 6 items total for perfect -->
-            <button class="sm:w-[160px]  md:w-[160px]  lg:w-[160px]  xl:w-[160px] 2xl:w-[160px] py-1 px-1">
+            <button class=" sm:w-[160px]  md:w-[160px]  lg:w-[160px]  xl:w-[160px] 2xl:w-[160px] py-1 px-1">
                 <div class="hover:bg-gray-600 dark:hover:bg-neutral-700 sm:h-[300px] p-2 rounded-lg flex sm:flex sm:flex-col md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col 2xl:flex 2xl:flex-col">
                     <div class='m-1 py-1 flex  rounded-lg   sm:flex sm:flex-col md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col 2xl:flex 2xl:flex-col'>
                         

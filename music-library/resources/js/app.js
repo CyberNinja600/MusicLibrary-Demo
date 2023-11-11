@@ -18,6 +18,8 @@ import UploadSonginfo from './components/Upload/uploadsonginfo.vue';
 import UploadSongFeature from './components/Upload/uploadsongfeature.vue';
 import UploadSongImages from './components/Upload/uploadsongimages.vue';
 
+import FullScreen from './components/Global-Special/fullscreen.vue';
+
 const app = createApp({
   // your app options
 });
@@ -35,6 +37,7 @@ app.component('playlist-showcase', PlaylistShowcase);
 app.component('recent-playlist', RecentPlaylist);
 app.component('your-playlist-left-nav', YourPlayListLeftNav);
 app.component('song-slider', SongSlider);
+app.component('full-screen', FullScreen);
 
 // Mount the app
 const homeElement = document.getElementById('home');

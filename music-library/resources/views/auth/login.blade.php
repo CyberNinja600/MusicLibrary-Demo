@@ -5,14 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Laravel</title>
-        @vite(['resources/sass/app.scss'])
+        @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
 
-        <style>
-            {!! Vite::content('resources/css/app.css') !!}
-        </style>
-        <script type='module'>
-            {!! Vite::content('resources/js/app.js') !!}
-        </script>
     </head>
 
     <body  class="bg-cover bg-no-repeat bg-center bg-fixed bg-[url('E:\XamppRepo\htdocs\xampp\MusicLibrary\music-library\public\img\bg\vibrant-night-sky-with-stars-nebula-galaxy.jpg')] dark:bg-[url('E:\XamppRepo\htdocs\xampp\MusicLibrary\music-library\public\img\bg\photo-1550684376-efcbd6e3f031.jpeg')]">
