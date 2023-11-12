@@ -123,7 +123,12 @@
     </template>
     
     <script>
+    
+    import SongSlider from './songslider.vue';
     export default {
+            components: {
+            'song-slider': SongSlider
+        },
       data() {
         return {
           isPlaying: true, // Initial state is playing

@@ -80,8 +80,11 @@ export default {
         };
     },
     methods: {
+
+        
         openFileInput() {
             this.$refs.fileInput.click();
+            console.log(this.user);
         },
         uploadFile(event) {
             const file = event.target.files[0];

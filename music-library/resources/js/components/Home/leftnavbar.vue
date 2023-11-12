@@ -50,3 +50,12 @@
     
 
 </template>
+
+<script>
+    import YourPlayListLeftNav from './yourplaylistleftnav.vue';
+    export default {
+            components: {
+            'your-playlist-left-nav': YourPlayListLeftNav
+        }
+    }
+</script>

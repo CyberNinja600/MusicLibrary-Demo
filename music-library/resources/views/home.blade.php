@@ -8,8 +8,8 @@
 
     <div class='flex static sm'>
 
-            <left-nav-bar> </left-nav-bar>
-            <home-library :user="{{ json_encode(Auth::user()) }}"></home-library>
+            <left-nav-bar > </left-nav-bar>
+            <home-library :user="{{ Auth::user() }}"></home-library>
 
 
     </div>
