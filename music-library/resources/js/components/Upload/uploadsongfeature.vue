@@ -1,7 +1,7 @@
 <template>
 
   <div v-if="uploadMessage">
-    <uploadsong-images></uploadsong-images>
+    <uploadsong-images :received-filename="receivedFilename" :received-Userid="receivedUserid"></uploadsong-images>
   </div>
 
   <div v-else class="container">  

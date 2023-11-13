@@ -13,8 +13,6 @@ const app = createApp({
 });
 
 
-
-
 // Register components
 app.component('music-player', MusicPlayer);
 app.component('left-nav-bar', LeftNavBar);
