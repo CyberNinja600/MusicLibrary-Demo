@@ -9,21 +9,21 @@
         <div v-else class="text-white ">  
             <form @submit.prevent="submitForm" method="POST" name="songuploadinfoform" id="songuploadinfoform">
                 <!-- song title-->
-                <div class="bg-neutral-50 dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
+                <div class="bg-gray-200 autofill:bg-gray-200 dark:autofill:bg-neutral-800 dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
                     <div class="relative bg-inherit ">
                         <input
                             v-model="songTitle"  
                             type="text" 
                             id="SongTitle" 
                             name="SongTitle" 
-                            class="peer bg-transparent h-10 w-[200px] sm:w-[200px] md:w-[250px] lg:w-[350px] xl:w-[480px] 2xl:w-[580px] rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600 " 
+                            class="peer  bg-transparent h-10 w-[200px] sm:w-[200px] md:w-[250px] lg:w-[350px] xl:w-[480px] 2xl:w-[580px] rounded-lg text-gray-500 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-500 focus:ring-sky-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600 " 
                             placeholder="Song Title"
                             required 
                             autocomplete="Song Title"
                             autofocus
                             />
                         <label for="SongTitle" 
-                            class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all"
+                            class="absolute cursor-text left-0 -top-3 text-sm text-gray-900 dark:text-neutral-50 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all"
                             >
                             Song Title
                         </label>
@@ -32,14 +32,14 @@
                 </div>
 
                 <!-- Description-->
-                    <div class="bg-neutral-50 dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
+                    <div class="bg-gray-200 autofill:bg-gray-200 dark:autofill:bg-neutral-800 dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
                     <div class="relative bg-inherit ">
                         <input
                             v-model="description" 
                             type="text" 
                             id="Description" 
                             name="Description" 
-                            class="peer bg-transparent h-10 w-[200px] sm:w-[200px] md:w-[250px] lg:w-[350px] xl:w-[480px] 2xl:w-[580px] rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600 " 
+                            class="peer bg-transparent h-10 w-[200px] sm:w-[200px] md:w-[250px] lg:w-[350px] xl:w-[480px] 2xl:w-[580px] rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-500 focus:ring-sky-600 dark:focus:ring-cyan-600  focus:outline-none focus:border-rose-600 " 
                             placeholder="Description"
                             required 
                             autocomplete="Description"
@@ -55,7 +55,7 @@
 
                 
                 <!-- Release Date-->
-                <div class="bg-neutral-50 dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
+                <div class="bg-gray-200  dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
                     <div class="relative bg-inherit ">
 
                         <input
@@ -63,7 +63,7 @@
                             type="datetime-local" 
                             id="SongReleaseDate" 
                             name="SongReleaseDate" 
-                            class="peer bg-transparent h-10 w-[200px] sm:w-[200px] md:w-[250px] lg:w-[350px] xl:w-[480px] 2xl:w-[580px] rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-200 focus:ring-sky-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600 " onfocus="(this.type='datetime-local')" onblur="(this.type='datetime-local')"
+                            class="peer bg-transparent h-10 w-[200px] sm:w-[200px] md:w-[250px] lg:w-[350px] xl:w-[480px] 2xl:w-[580px] rounded-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2 ring-gray-500 focus:ring-sky-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600 " onfocus="(this.type='datetime-local')" onblur="(this.type='datetime-local')"
                         >
 
                         <label for="SongReleaseDate" 

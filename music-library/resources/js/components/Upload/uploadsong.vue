@@ -2,16 +2,16 @@
     <div class="w-[640px] sm:w-screen select-none">
         <!-- <div class="text-white"> {{user.name}}</div> -->
         <div id='upload'
-            class="pt-[40px] bg-gradient-to-r from-gray-50 to-gray-50 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-min-[375px]   sm:w-screen h-screen">
+            class="pt-[40px] bg-gradient-to-r from-gray-100 to-gray-100 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-min-[375px]   sm:w-screen h-screen">
             <div class="flex items-center -mt-[40px] justify-center h-screen flex-wrap text-white">
 
                 <div v-if="uploadMessage"
-                    class="bg-gray-50 bg-opacity-30 dark:bg-neutral-800  relative  p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 w-[300px] h-[510px] sm:w-[350px] sm:h-[510px] md:w-[450px] md:h-[530px] lg:w-[550px] lg:h-[550px] xl:w-[600px] xl:h-[600px] 2xl:w-[650px] 2xl:h-[650px] ">
+                    class="bg-gray-200  dark:bg-neutral-800  relative  p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 w-[300px] h-[510px] sm:w-[350px] sm:h-[510px] md:w-[450px] md:h-[530px] lg:w-[550px] lg:h-[550px] xl:w-[600px] xl:h-[600px] 2xl:w-[650px] 2xl:h-[650px] ">
                     <uploadsong-info :received-filename="filename" :received-Userid="userid"> </uploadsong-info>
                 </div>
 
                 <div v-else
-                    class=" bg-gray-50 bg-opacity-30 dark:bg-neutral-800  p-8 rounded-lg sm:rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-min sm:w-[350px]  md:w-[450px] lg:w-[550px]  xl:w-[600px] 2xl:w-[650px] h-[510px] sm:h-[510px] md:h-[530px] lg:h-[550px] xl:h-[600px]  2xl:h-[650px]">
+                    class=" bg-gray-200  dark:bg-neutral-800  p-8 rounded-lg sm:rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-min sm:w-[350px]  md:w-[450px] lg:w-[550px]  xl:w-[600px] 2xl:w-[650px] h-[510px] sm:h-[510px] md:h-[530px] lg:h-[550px] xl:h-[600px]  2xl:h-[650px]">
                     <h2 class="select-none text-lg font-semibold my-4 text-neutral-800 dark:text-neutral-50 bg-transparent">Upload
                         Music</h2>
                     <div

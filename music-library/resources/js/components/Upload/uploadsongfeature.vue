@@ -5,7 +5,7 @@
   </div>
 
   <div v-else class="container">  
-    <div class="bg-neutral-50 dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
+    <div class="bg-gray-200 dark:bg-neutral-800 relative mb-3 pb-1 pt-1 text-center">
         <div class="flex"> 
             <div class="relative bg-inherit  hover:shadow-md rounded-l-lg">
                 <input
@@ -13,12 +13,12 @@
                 v-model="featureArtist"
                 name="featureArtist"
                 id="featureArtist"
-                class=" peer bg-transparent h-10 sm:w-[170px] md:w-[230px] lg:w-[330px] xl:w-[460px] 2xl:w-[560px] rounded-l-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2  ring-gray-200 focus:ring-gray-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600"
+                class=" peer bg-transparent h-10 sm:w-[170px] md:w-[230px] lg:w-[330px] xl:w-[460px] 2xl:w-[560px] rounded-l-lg text-gray-700 dark:text-neutral-50 placeholder-transparent ring-1 px-2  ring-gray-500 focus:ring-sky-600 dark:focus:ring-cyan-600 focus:outline-none focus:border-rose-600"
                 placeholder="Search for users"
                 autocomplete="FeatureArtist"
                 />
                 <label for="featureArtist" 
-                    class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all "
+                    class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-neutral-50 bg-gray-200 dark:bg-neutral-800 mx-1 px-1 peer-placeholder-shown:text-base duration-200  peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-neutral-50  peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-600 dark:peer-focus:text-cyan-600 peer-focus:text-sm transition-all "
                     >
                     Feature Artists
                 </label>
@@ -34,7 +34,7 @@
             <div v-for="user in filteredUsers.slice(0, 3)" :key="user.id"  class="px-1 text-left py-2 hover:bg-gray-600 dark:hover:bg-neutral-600 rounded-1">
                   <div v-if="user.id !== receivedUserid" class="flex ">
                   <input name="featureArtistCheckbox" class=" text-neutral-50 ml-4 dark:hover:bg-neutral-600" type="checkbox" v-bind:value="user.id" v-model="selectedFeatureArtist"/>
-                    <div class="text-neutral-50 ml-4 dark:hover:bg-neutral-600">{{ user.name }}</div>
+                    <div class="text-neutral-50 ml-4  dark:hover:bg-neutral-600">{{ user.name }}</div>
                   </div>
                   <div v-else>
 
@@ -52,9 +52,9 @@
         </div>
     </div>
 
-    <div class="absolute bg-neutral-500  shadow-neutral-50 select-none text-white dark:text-white scroll-container custom-scrollbar dark:darkcustom-scrollbar rounded-lg flex w-[210px] md:w-[270px] lg:w-[370px] xl:w-[500px] 2xl:w-[600px] h-[100px] overflow-x-auto ">
+    <div class="absolute bg-gray-700 dark:bg-neutral-500 shadow-neutral-50 select-none text-white dark:text-white scroll-container custom-scrollbar dark:darkcustom-scrollbar rounded-lg flex w-[210px] md:w-[270px] lg:w-[370px] xl:w-[500px] 2xl:w-[600px] h-[100px] overflow-x-auto ">
           <div v-for="userName in selectedUsers" :key="userName" class="">
-            <div class="hover:mix-blend-overlay hover:text-cyan-300 p-1 bg-neutral-900 text-neutral-50 border-1 rounded-lg m-1 border-cyan-800">{{ userName }}</div> 
+            <div class="hover:mix-blend-overlay dark:hover:text-cyan-300 text-gray-200 hover:text-neutral-50 p-1 bg-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 border-1 rounded-lg m-1 border-neutral-50 dark:border-cyan-800">{{ userName }}</div> 
           </div>
     </div>
 

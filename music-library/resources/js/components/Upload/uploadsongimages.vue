@@ -4,9 +4,9 @@
         <div class="flex items-stretch  w-[240px] sm:w-[290px] md:w-[390px] lg:w-[480px] xl:w-[500px] 2xl:w-[580px] h-[310px] sm:h-[320px] md:h-[330px] lg:h-[340px] xl:h-[350px] 2xl:h-[400px]  ">
             
             <div v-if="selectedImage" :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'cover' }" class=" grow flex rounded-l-lg">
-                <div class="bg-neutral-600 bg-opacity-20 blurred-background  grow flex rounded-l-lg">
+                <div class=" bg-opacity-20 blurred-background  grow flex rounded-l-lg">
                 <div :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'contain' }"  class="blurred-backgroundOp grow bg-no-repeat bg-center rounded-l-lg grid content-center">
-                    <div class="grid justify-items-center  -mb-[160px] self-end" >
+                    <div class="grid justify-items-center -mb-[100px] sm:-mb-[100px] lg:-mb-[105px] xl:-mb-[120px]  self-end" >
                         <div class="pt-[20px] relative" title="Choose a different thumbnail">
                             <input type="file" ref="fileInput" @change="handleFileChange" style="display: none"  name="fileinputname" class="">
                             <button
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" mt-[90px] grid justify-items-center">
+                <div class=" mt-[90px] sm:mt-[90px] lg:mt-[95px] xl:mt-[110px] grid justify-items-center">
                     <input class="hidden" />
                     <button v-if="selectedImage" class="bg-gray-800 hover:bg-gray-700 dark:bg-neutral-400 dark:hover:bg-neutral-200 text-neutral-50 dark:text-neutral-950 border-1 border-neutral-400  py-2 px-4 rounded">
                         Submit
