@@ -5,14 +5,14 @@
             
             <div v-if="selectedImage" :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'cover' }" class=" grow flex rounded-l-lg">
                 <div class="bg-neutral-600 bg-opacity-20 blurred-background  grow flex rounded-l-lg">
-                <div :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'contain' }"  class=" blurred-backgroundOp grow bg-no-repeat bg-center rounded-l-lg grid content-center">
-                    <div class="grid justify-items-center content-center" >
-                        <div class="pt-[20px]">
-                            <input type="file" ref="fileInput" @change="handleFileChange" style="display: none"  name="fileinputname">
+                <div :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'contain' }"  class="blurred-backgroundOp grow bg-no-repeat bg-center rounded-l-lg grid content-center">
+                    <div class="grid justify-items-center  -mb-[160px] self-end" >
+                        <div class="pt-[20px] relative" title="Choose a different thumbnail">
+                            <input type="file" ref="fileInput" @change="handleFileChange" style="display: none"  name="fileinputname" class="">
                             <button
                                 @click="openFileInput" 
-                                class=" bg-gray-800 hover:bg-gray-700 dark:bg-neutral-400 dark:hover:bg-neutral-200 text-neutral-50 dark:text-neutral-950 border-1 border-neutral-400  py-2 px-4 rounded">
-                                <p>Select Files</p>
+                                class="bg-gray-800 hover:bg-gray-700 dark:bg-neutral-400 dark:hover:bg-neutral-200 text-neutral-50 dark:text-neutral-950 border-1 border-neutral-400  py-2 px-4 rounded">
+                                <p>Change</p>
                             </button>
                         </div>
                     </div>
@@ -53,6 +53,12 @@
                             <li>{{ selectedImageName }}</li>
                         </div>
                     </div>
+                </div>
+                <div class=" mt-[90px] grid justify-items-center">
+                    <input class="hidden" />
+                    <button v-if="selectedImage" class="bg-gray-800 hover:bg-gray-700 dark:bg-neutral-400 dark:hover:bg-neutral-200 text-neutral-50 dark:text-neutral-950 border-1 border-neutral-400  py-2 px-4 rounded">
+                        Submit
+                    </button>
                 </div>
             </div>
         </div>
