@@ -3,7 +3,7 @@
         <h1 class="relative text-center text-neutral-900  font-semibold dark:text-neutral-300 pb-[10px] text-lg">Upload a Thumbnail</h1>
         <div class="flex items-stretch  w-[240px] sm:w-[290px] md:w-[390px] lg:w-[480px] xl:w-[500px] 2xl:w-[580px] h-[310px] sm:h-[320px] md:h-[330px] lg:h-[340px] xl:h-[350px] 2xl:h-[400px]  ">
             
-            <div v-if="selectedImage" :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'cover' }" class=" grow flex rounded-l-lg">
+            <div v-if="imageValidation" :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'cover' }" class=" grow flex rounded-l-lg">
                 <div class=" bg-opacity-20 blurred-background  grow flex rounded-l-lg">
                 <div :style="{ backgroundImage: `url(${selectedImage})`,backgroundSize: 'contain' }"  class="blurred-backgroundOp grow bg-no-repeat bg-center rounded-l-lg grid content-center">
                     <div class="grid justify-items-center -mb-[100px] sm:-mb-[100px] lg:-mb-[105px] xl:-mb-[120px]  self-end" >
@@ -20,7 +20,7 @@
                 </div>
             </div>
             
-            <div v-else class="grow dark:bg-neutral-700 rounded-l-lg grid content-center">
+            <div v-else class="grow bg-gray-300 dark:bg-neutral-700 rounded-l-lg grid content-center">
                 <div class="grid justify-items-center content-center ">
                     <div class="px-1">
                         <!-- class="dark:text-neutral-500 dark:hover:text-neutral-400  dark:bg-neutral-600 dark:hover:bg-neutral-500 rounded-full sm:p-4 md:p-4 lg:p-4 xl:p-4 2xl:p-4 h-[80px] sm:h-[80px] md:h-[130px] lg:h-[170px] w-[80px] sm:w-[80px] md:w-[130px] lg:w-[170px] "-->
@@ -43,11 +43,11 @@
                     </div>
                 </div>
             </div>
-            <div class="grow rounded-r-lg bg-neutral-600 grid content-center relative w-[100px] p-[10px] ">
+            <div class="grow rounded-r-lg bg-gray-600 dark:bg-neutral-600 grid content-center relative w-[100px] p-[10px] ">
                 <div>
                     File Name
                 </div>
-                <div class="relative bg-neutral-800 rounded-lg p-[10px] h-[50.5px] overflow-hidden">
+                <div class="relative bg-gray-700 dark:bg-neutral-800 rounded-lg p-[10px] h-[50.5px] overflow-hidden">
                     <div class="overflow-x-auto custom-scrollbar dark:darkcustom-scrollbar scroll-container ">
                         <div class="whitespace-nowrap select-text">
                             <li>{{ selectedImageName }}</li>
@@ -79,6 +79,7 @@ export default{
         return{
             selectedImageName: null,
             selectedImage: null,
+            imageValidation: false,
         };
     },
 
@@ -92,17 +93,37 @@ export default{
             this.$refs.fileInput.click();
         },
         handleFileChange(event) {
-            const fileInput = event.target;
-            if (fileInput.files.length > 0) {
-                this.selectedImageName = fileInput.files[0].name;
-                this.selectedImage = URL.createObjectURL(fileInput.files[0]);
-                console.log(this.selectedImageName)
+        const fileInput = event.target;
+
+        if (fileInput.files.length > 0) {
+            const selectedFile = fileInput.files[0];
+
+            // Check if the file is an image based on its MIME type or extension
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            
+            if (validImageTypes.includes(selectedFile.type) || /\.(jpe?g|png|gif)$/i.test(selectedFile.name)) {
+                // It's a valid image
+                this.selectedImageName = selectedFile.name;
+                this.selectedImage = URL.createObjectURL(selectedFile);
+                console.log(this.selectedImageName);
+                this.imageValidation = true;
             } 
             
             else {
+                // It's not a valid image
+                alert('Please select a valid image file (JPEG, PNG, or GIF).');
                 this.selectedImageName = null;
+                this.imageValidation = false;
             }
-        },
+        } 
+        
+        else {
+            // No file selected
+            this.selectedImageName = null;
+            this.imageValidation = false;
+        }
+    },
+
     }
 }
 </script>
