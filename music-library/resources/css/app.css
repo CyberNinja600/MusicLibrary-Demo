@@ -97,6 +97,10 @@ input[type="range"]:active::-webkit-slider-thumb {
         border: 3px solid #555;
 
     }
+
+    .blurred-background {
+        backdrop-filter: blur(.2rem); /* Adjust the blur intensity as needed */
+    }
     
     
 }

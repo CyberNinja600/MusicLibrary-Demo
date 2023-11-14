@@ -30,6 +30,9 @@ Route::get('/upload', [App\Http\Controllers\UploadController::class, 'index'])->
 use App\Http\Controllers\MusicUploadController;
 Route::post('/upload-song', [MusicUploadController::class, 'uploadSong']);
 
+use App\Http\Controllers\MusicThumbnailController;
+Route::post('/upload-song-thumbnail', [MusicThumbnailController::class, 'uploadThumbnail']);
+
 
 
 

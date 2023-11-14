@@ -54,9 +54,9 @@
                         </div>
                     </div>
                 </div>
-                <div class=" mt-[90px] sm:mt-[90px] lg:mt-[95px] xl:mt-[110px] grid justify-items-center">
-                    <input class="hidden" />
-                    <button v-if="selectedImage" class="bg-gray-800 hover:bg-gray-700 dark:bg-neutral-400 dark:hover:bg-neutral-200 text-neutral-50 dark:text-neutral-950 border-1 border-neutral-400  py-2 px-4 rounded">
+                <div class=" mt-[90px] sm:mt-[90px] lg:mt-[95px] xl:mt-[120px] grid justify-items-center">
+                    <input class="hidden" type="file" @change="handleFileChange"/>
+                    <button @click="uploadMusicThumbnail" v-if="selectedImage" class="bg-gray-800 hover:bg-gray-700 dark:bg-neutral-400 dark:hover:bg-neutral-200 text-neutral-50 dark:text-neutral-950 border-1 border-neutral-400  py-2 px-4 rounded">
                         Submit
                     </button>
                 </div>
@@ -66,20 +66,17 @@
 
 </template>
 
-<style scoped>
-.blurred-background {
-  backdrop-filter: blur(.2rem); /* Adjust the blur intensity as needed */
-}
-
-</style>
 
 <script>
+
+import axios from 'axios';
 export default{
     data() {
         return{
             selectedImageName: null,
             selectedImage: null,
             imageValidation: false,
+            selectedFile: File,
         };
     },
 
@@ -93,36 +90,50 @@ export default{
             this.$refs.fileInput.click();
         },
         handleFileChange(event) {
-        const fileInput = event.target;
+            const fileInput = event.target;
 
-        if (fileInput.files.length > 0) {
-            const selectedFile = fileInput.files[0];
-
-            // Check if the file is an image based on its MIME type or extension
-            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            
-            if (validImageTypes.includes(selectedFile.type) || /\.(jpe?g|png|gif)$/i.test(selectedFile.name)) {
-                // It's a valid image
-                this.selectedImageName = selectedFile.name;
-                this.selectedImage = URL.createObjectURL(selectedFile);
-                console.log(this.selectedImageName);
-                this.imageValidation = true;
+            if (fileInput.files.length > 0) {
+                this.selectedFile = fileInput.files[0];
+                const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                
+                if (validImageTypes.includes(this.selectedFile.type) || /\.(jpe?g|png|gif)$/i.test(this.selectedFile.name)) {
+                    this.selectedImageName = this.selectedFile.name;
+                    this.selectedImage = URL.createObjectURL(this.selectedFile);
+                    console.log(this.selectedImageName);
+                    this.imageValidation = true;
+                } 
+                
+                else {
+                    alert('Please select a valid image file (JPEG, PNG, or GIF).');
+                    this.selectedImageName = null;
+                    this.imageValidation = false;
+                }
             } 
             
             else {
-                // It's not a valid image
-                alert('Please select a valid image file (JPEG, PNG, or GIF).');
+                // No file selected
                 this.selectedImageName = null;
                 this.imageValidation = false;
             }
-        } 
-        
-        else {
-            // No file selected
-            this.selectedImageName = null;
-            this.imageValidation = false;
-        }
-    },
+        },
+        uploadMusicThumbnail() {
+            if (this.selectedFile) {
+                const file = this.selectedFile;
+                const formData = new FormData();
+                formData.append('file', file);
+                axios.post('/upload-song-thumbnail', formData)
+                .then(response => {
+                    console.log(response.data.message)
+                })
+                .catch(error => {
+                    this.uploadMessage = 'Upload Failed'; // Set an error message if the upload fails
+                });
+            } 
+            
+            else {
+                alert('Please select a file before uploading.');
+            }
+        },
 
     }
 }
