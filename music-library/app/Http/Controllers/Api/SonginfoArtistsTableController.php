@@ -7,10 +7,23 @@ use Illuminate\Http\Request;
 
 class SonginfoArtistsTableController extends Controller
 {
+
+    public function featureArtistnameValidation(Request $request){
+        try{
+            $request->validate([
+                'selectedFeatureArtist' => 'array|max:255',
+                // 'receivedUserid' => 'required|numeric|max:255',
+            ]);
+
+            return response()->json(['message' => 'successful']);
+        }
+
+        catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json(['message' => 'failed']);
+        }
+    }
+
     public function featureArtistname(Request $request){
-
-
-
         $request->validate([
             'selectedFeatureArtist' => 'array|max:255',
             'receivedFilename' => 'required|string|max:255',

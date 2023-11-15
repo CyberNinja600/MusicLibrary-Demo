@@ -2,8 +2,14 @@
     <h2 class=" text-lg font-semibold mt-4 text-gray-800 dark:text-neutral-50 bg-transparent">Upload Musics</h2>
     <div class="grid  gap-2 justify-items-center content-between bg-transparent my-[20px] sm:my-[30px] md:my-[30px] lg:my-[60px] xl:my-[100px] 2xl:my-[100px]">
         
-        <div v-if="uploadMessage" class="text-white">
-            <uploadsong-feature :received-filename="receivedFilename" :received-Userid="receivedUserid"> </uploadsong-feature>
+        <div v-if="uploadMessage=='successful'" class="text-white">
+            <uploadsong-feature :receivedFile="receivedFile" 
+                                :receivedUserid="receivedUserid" 
+                                :receivedSongTitle="songTitle" 
+                                :receivedDescription="description"
+                                :receivedSongReleaseDate="songReleaseDate"                                     
+                                >
+            </uploadsong-feature>
         </div>
         
         <div v-else class="text-white ">  
@@ -88,8 +94,8 @@
                 </div>
                 <!-- <div class="text-white"> {{ receivedFilename}} </div>
                 <div class="text-white"> {{ receivedUserid}} </div> -->
-                <input type="hidden" id="filename" name="filename" value="{{ receivedFilename}}"/>
-                <input type="hidden" id="uploadedby" name="uploadedby" value="{{ receivedUserid}}">
+                <!-- <input type="hidden" id="filename" name="filename" value="{{ receivedFilename}}"/> -->
+                <!-- <input type="hidden" id="uploadedby" name="uploadedby" value="{{ receivedUserid}}"> -->
 
             </form>
 
@@ -109,7 +115,7 @@ export default {
     'uploadsong-feature': UploadSongFeature
   },
   props: {
-    receivedFilename: String,
+    receivedFile: File,
     receivedUserid: Number,
   },
   data() {
@@ -118,7 +124,6 @@ export default {
             // artistName: '',
             description: '',
             songReleaseDate: '',
-            filename: '',
             uploadedby: '',
             uploadMessage:'',
         };
@@ -126,33 +131,24 @@ export default {
     methods: {
         async submitForm() {
             try {
-            //     console.log('Form Data:', {
-            //     songTitle: this.songTitle,
-            //     // artistName: this.artistName,
-            //     description: this.description,
-            //     songReleaseDate: this.songReleaseDate,
-            //     filename: this.receivedFilename,
-            //     uploadedby: this.receivedUserid,
-            // });
-                const response = await axios.post('api/uploadsonginfo', {
+                const response = await axios.post('api/uploadsonginfovalidation', {
                     songTitle: this.songTitle,
                     // artistName: this.artistName,
                     description: this.description,
                     songReleaseDate: this.songReleaseDate,
-                    filename: this.receivedFilename,
+                    // filename: this.receivedFilename,
                     uploadedby: this.receivedUserid,
-                },{
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                    }
                 })
+
+
                 .then(response => {
                     // Handle the success response as needed
                     // console.log(response.data.message)
+                    this.uploadMessage = response.data.message;
                     console.log("Song Info Updated")
                 });
-                    this.uploadMessage = 'Info Updated Successful';
 
+                // this.uploadMessage = 'Info Updated Successful';
             } 
             
             catch (error) {

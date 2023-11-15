@@ -7,7 +7,6 @@
     
 
     <div class='flex static sm'>
-
             <left-nav-bar > </left-nav-bar>
             <home-library :user="{{ Auth::user() }}"></home-library>
 

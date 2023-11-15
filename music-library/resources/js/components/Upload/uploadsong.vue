@@ -5,9 +5,9 @@
             class="pt-[40px] bg-gradient-to-r from-gray-100 to-gray-100 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-min-[375px]   sm:w-screen h-screen">
             <div class="flex items-center -mt-[40px] justify-center h-screen flex-wrap text-white">
 
-                <div v-if="uploadMessage"
+                <div v-if="uploadMessage == 'successful'"
                     class="bg-gray-200  dark:bg-neutral-800  relative  p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 w-[300px] h-[510px] sm:w-[350px] sm:h-[510px] md:w-[450px] md:h-[530px] lg:w-[550px] lg:h-[550px] xl:w-[600px] xl:h-[600px] 2xl:w-[650px] 2xl:h-[650px] ">
-                    <uploadsong-info :received-filename="filename" :received-Userid="userid"> </uploadsong-info>
+                    <uploadsong-info :received-file="file" :received-Userid="userid"> </uploadsong-info>
                 </div>
 
                 <div v-else
@@ -77,6 +77,7 @@ export default {
         return {
             uploadMessage: '',
             filename: '',
+            file: File,
         };
     },
     methods: {
@@ -84,26 +85,31 @@ export default {
         
         openFileInput() {
             this.$refs.fileInput.click();
-            console.log(this.user);
         },
-        uploadFile(event) {
-            const file = event.target.files[0];
-            const formData = new FormData();
-            formData.append('file', file);
 
-            axios.post('/upload-song', formData)
+
+        uploadFile(event) {
+            this.file = event.target.files[0];
+            const formData = new FormData();
+            formData.append('file', this.file);
+
+            axios.post('/upload-song-validation', formData)
                 .then(response => {
-                    // Handle the success response as needed
-                    // console.log(response.data.message);
-                    console.log("You song has been uploaded")
-                    this.uploadMessage = 'Upload Successful';
-                    this.filename = response.data.message
                     this.userid = this.user.id
+                    this.uploadMessage = response.data.message;
+                    if(this.uploadMessage == 'successful'){
+                        console.log(response.data.message);
+                        this.filename = response.data.filename;
+                    }
+                    else{
+                        alert(response.data.message);
+                    }
+
                 })
                 .catch(error => {
                     // Handle errors, e.g., show an error message to the user
                     // console.error(error);
-                    this.uploadMessage = 'Upload Failed'; // Set an error message if the upload fails
+                    this.uploadMessage = response.data.message; // Set an error message if the upload fails
                 });
         }
     }

@@ -1,7 +1,13 @@
 <template>
 
   <div v-if="uploadMessage">
-    <uploadsong-images :received-filename="receivedFilename" :received-Userid="receivedUserid"></uploadsong-images>
+    <uploadsong-images  :receivedFile="receivedFile" 
+                        :receivedUserid="receivedUserid" 
+                        :songTitle="receivedSongTitle" 
+                        :description="receivedDescription"
+                        :songReleaseDate="receivedSongReleaseDate"
+                        :selectedFeatureArtist="selectedFeatureArtist"
+    ></uploadsong-images>
   </div>
 
   <div v-else class="container">  
@@ -54,13 +60,13 @@
 
     <div class="absolute bg-gray-700 dark:bg-neutral-500 shadow-neutral-50 select-none text-white dark:text-white scroll-container custom-scrollbar dark:darkcustom-scrollbar rounded-lg flex w-[210px] md:w-[270px] lg:w-[370px] xl:w-[500px] 2xl:w-[600px] h-[100px] overflow-x-auto ">
           <div v-for="userName in selectedUsers" :key="userName" class="">
-            <div class="hover:mix-blend-overlay dark:hover:text-cyan-300 text-gray-200 hover:text-neutral-50 p-1 bg-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 border-1 rounded-lg m-1 border-neutral-50 dark:border-cyan-800">{{ userName }}</div> 
+            <div class="hover:mix-blend-overlay dark:hover:text-cyan-300 text-gray-200 hover:text-neutral-50 p-1 bg-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 border-1 rounded-lg m-1 border-neutral-50 dark:border-cyan-800">{{ userName }}</div>            
           </div>
     </div>
 
     <form @submit.prevent="submitFormFeaturedArtists" method="post" class="absolute inset-x-0 bottom-0" id="featuredArtistResults" name="featuredArtistResults">
       <input type="hidden"  v-bind:value="selectedFeatureArtist" />
-      <input type="hidden" v-bind:value="receivedFilename">
+      <!-- <input type="hidden" v-bind:value="receivedFilename"> -->
       <input type="hidden" v-bind:value="receivedUserid">
       <div class="mb-12 pb-1 pt-1 text-center">
             <button
@@ -88,8 +94,11 @@ export default {
     "uploadsong-images": UploadSongImages
   },
   props: {
-    receivedFilename: String,
+    receivedFile: File,
     receivedUserid: Number,
+    receivedSongTitle: String,
+    receivedDescription: String,
+    receivedSongReleaseDate: String,
   },
   setup() {
     const state = reactive({
@@ -153,16 +162,12 @@ export default {
 
       try{
 
-          const response = await axios.post('api/songinfo-artists-tableAPI', {
+          const response = await axios.post('api/songinfo-artists-table-validationAPI', {
             selectedFeatureArtist: this.selectedFeatureArtist,
-            receivedFilename: this.receivedFilename,
-            receivedUserid: this.receivedUserid
+            // receivedFile: this.receivedFile,
+            // receivedUserid: this.receivedUserid
 
-        },{
-            headers:{
-              'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-            }
-          })
+        })
           .then(response => {
               // Handle the success response as needed
               // console.log(response.data.message)

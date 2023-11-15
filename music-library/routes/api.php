@@ -26,10 +26,12 @@ Route::get('/featuring-userAPI', [FeaturingController::class, 'index']);
 
 use App\Http\Controllers\Api\SonginfoArtistsTableController;
 Route::post('/songinfo-artists-tableAPI', [SonginfoArtistsTableController::class,'featureArtistname']);
+Route::post('/songinfo-artists-table-validationAPI', [SonginfoArtistsTableController::class,'featureArtistnameValidation']);
 
 
 
 //file handle, can't use API
 use App\Http\Controllers\Api\SongInfoController;
 Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
+Route::post('/uploadsonginfovalidation', [SongInfoController::class, 'songinfovalidation']);
 

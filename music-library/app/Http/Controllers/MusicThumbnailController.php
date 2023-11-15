@@ -23,9 +23,5 @@ class MusicThumbnailController extends Controller
 
         // Return a response, you can modify this as needed
         return response()->json(['message' => $fileName]);
-
-
-        
-        
     }
 }
