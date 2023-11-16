@@ -35,3 +35,8 @@ use App\Http\Controllers\Api\SongInfoController;
 Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 Route::post('/uploadsonginfovalidation', [SongInfoController::class, 'songinfovalidation']);
 
+
+
+use App\Http\Controllers\Api\SongThumbnailController;
+Route::post('/upload_thumbnail_info', [SongThumbnailController::class, 'upload_thumbnail']);
+

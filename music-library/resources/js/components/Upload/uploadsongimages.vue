@@ -69,8 +69,8 @@
             </div>
 
 
-            <div v-else class="text-black items-stretch mt-[50px] w-[240px] sm:w-[290px] md:w-[390px] lg:w-[480px] xl:w-[500px] 2xl:w-[580px] h-[310px] sm:h-[320px] md:h-[330px] lg:h-[340px] xl:h-[350px] 2xl:h-[400px]">
-                <div class="text-black font-bold">
+            <div v-else class="text-black dark:text-white items-stretch mt-[50px] w-[240px] sm:w-[290px] md:w-[390px] lg:w-[480px] xl:w-[500px] 2xl:w-[580px] h-[310px] sm:h-[320px] md:h-[330px] lg:h-[340px] xl:h-[350px] 2xl:h-[400px]">
+                <div class="text-black dark:text-white font-bold">
 
                         <ul>
                             <li v-if="uploadthumbnail" class="text-emerald-600">1. Thumbnail Uploaded</li>
@@ -80,10 +80,11 @@
                         </ul>
 
                 </div>
-                <div class='mt-[10px]'>
+                <div class='mt-[10px] dark:text-white font-semibold'>
+
                     {{ this.uploadProgress  }}%
-                    <div class="progress-bar text-black">
-                        <div :style="{ width: `${uploadProgress}%` }" class="progress text-black"></div>
+                    <div class="progress-bar text-black dark:text-white">
+                        <div :style="{ width: `${uploadProgress}%` }" class="progress text-black dark:text-white"></div>
                     </div>
                 </div>
 
@@ -125,6 +126,7 @@ export default {
       selectedFile: null,
       uploadthumbnail: false,
       uploadsongprog: false,
+      thumbnailname: null,
       filename: null,
       uploading: false,
       uploadProgress: 0,
@@ -196,10 +198,11 @@ export default {
         })
         .then((response) => {
           console.log(response.data.message);
-          this.filename = response.data.message;
+          this.thumbnailname = response.data.message;
           // Continue with music file upload
           return this.uploadMusic();
         })
+        .then(() => this.thumbnailSongMap())
         .then(() => this.uploadSongInfo())
         .then(() => this.uploadFeatureArtist())
         .catch((error) => {
@@ -236,6 +239,23 @@ export default {
         .catch((error) => {
           this.uploadMessage = 'Music Upload Failed';
           throw error;
+        });
+    },
+
+    thumbnailSongMap(){
+      return axios 
+        .post('api/upload_thumbnail_info', {
+          thumbnail_file_name: this.thumbnailname,
+          song_file_name: this.filename,
+        })
+        .then((response) => {
+          console.log('Thumbnail and Song Mapped');
+        })
+        .catch((error) => {
+          console.log(this.filename);
+          console.log(this.thumbnailname);
+          console.log('Error mapping thumbnail and song');
+          console.error(error);
         });
     },
 
