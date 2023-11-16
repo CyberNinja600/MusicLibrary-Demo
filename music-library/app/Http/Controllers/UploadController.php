@@ -23,6 +23,11 @@ class UploadController extends Controller
      */
     public function index()
     {
-        return view('upload');
+        return view('manage.upload');
+    }
+
+    public function manage()
+    {
+        return view('manage.manage');
     }
 }

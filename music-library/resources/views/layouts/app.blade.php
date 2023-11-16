@@ -82,7 +82,7 @@
 
                                     <ul class="py-2 hover:bg-gray-500 dark:hover:bg-neutral-700 text-sm " aria-labelledby="dropdownUserAvatarButton">
                                         <li>
-                                            <a href="/upload" class="block px-4 py-2 ">Upload</a>
+                                            <a href="/manage" class="block px-4 py-2 ">Manage</a>
                                         </li>
                                     </ul>
 
