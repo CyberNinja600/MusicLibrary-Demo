@@ -25,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/upload', [App\Http\Controllers\UploadController::class, 'index'])->name('upload');
 Route::get('/manage', [App\Http\Controllers\UploadController::class, 'manage'])->name('manage');
-Route::get('/manageplaylist', [App\Http\Controllers\UploadController::class, 'manageplaylist'])->name('manageplaylist');
+Route::get('/managealbum', [App\Http\Controllers\UploadController::class, 'managealbum'])->name('managealbum');
 
 // upload music function
 use App\Http\Controllers\MusicUploadController;

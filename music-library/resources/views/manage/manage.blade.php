@@ -11,9 +11,9 @@
                             </li>
                         </a>
 
-                        <a href='/manageplaylist'>
+                        <a href='/managealbum'>
                             <li class='hover:bg-gray-700 dark:hover:bg-neutral-700 rounded-lg text-white p-4 text-center'>
-                                Manage Playlist
+                                Manage Album
                             </li>
                         </a>
                     

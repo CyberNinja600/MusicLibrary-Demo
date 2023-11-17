@@ -31,8 +31,8 @@ class UploadController extends Controller
         return view('manage.manage');
     }
 
-    public function manageplaylist()
+    public function managealbum()
     {
-        return view('manage.manageplaylist');
+        return view('manage.managealbum');
     }
 }
