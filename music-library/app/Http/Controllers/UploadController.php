@@ -30,4 +30,9 @@ class UploadController extends Controller
     {
         return view('manage.manage');
     }
+
+    public function manageplaylist()
+    {
+        return view('manage.manageplaylist');
+    }
 }

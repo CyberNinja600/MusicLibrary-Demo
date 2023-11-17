@@ -30,7 +30,7 @@ Route::post('/songinfo-artists-table-validationAPI', [SonginfoArtistsTableContro
 
 
 
-//file handle, can't use API
+
 use App\Http\Controllers\Api\SongInfoController;
 Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 Route::post('/uploadsonginfovalidation', [SongInfoController::class, 'songinfovalidation']);
