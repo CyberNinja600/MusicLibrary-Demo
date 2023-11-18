@@ -37,6 +37,12 @@ Route::post('/uploadsonginfovalidation', [SongInfoController::class, 'songinfova
 
 
 
+// use App\Http\Controllers\Api\SongThumbnailController;
+// Route::post('/upload_thumbnail_info', [SongThumbnailController::class, 'upload_thumbnail']);
+
 use App\Http\Controllers\Api\SongThumbnailController;
-Route::post('/upload_thumbnail_info', [SongThumbnailController::class, 'upload_thumbnail']);
+Route::middleware('auth')->group(function () {
+    Route::post('/upload_thumbnail_info', [SongThumbnailController::class, 'upload_thumbnail']);
+});
+
 
