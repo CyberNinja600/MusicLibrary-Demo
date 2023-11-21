@@ -29,6 +29,7 @@
                     Feature Artists
                 </label>
             </div>
+
             <button class="py-2 ml-[2px] px-2 bg-gray-800 dark:bg-neutral-700 rounded-r-lg ring-1 ring-neutral-400 hover:mix-blend-overlay  " title="Search">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -42,8 +43,8 @@
                   <input name="featureArtistCheckbox" class=" text-neutral-50 ml-4 dark:hover:bg-neutral-600" type="checkbox" v-bind:value="user.id" v-model="selectedFeatureArtist"/>
                     <div class="text-neutral-50 ml-4  dark:hover:bg-neutral-600">{{ user.name }}</div>
                   </div>
-                  <div v-else>
 
+                  <div v-else>
                     <p class="text-neutral-50 ml-4 dark:hover:bg-neutral-600">{{ user.name }} (You)</p>
                   </div>
 

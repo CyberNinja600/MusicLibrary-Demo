@@ -46,3 +46,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
+use App\Http\Controllers\Api\PlaylistNames;
+Route::post('/playlist_name_create', [PlaylistNames::class, 'playlist_name_create']);
+
+

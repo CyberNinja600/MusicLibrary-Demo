@@ -8,14 +8,7 @@
         </div>
 
         <div class="flex grow rounded-lg ">
-            <div class=" min-w-[25%] max-w-[35%]  grid pt-2 mb-3 px-1">
-                <div class="h-[100%] sm:h-[93%] overflow-y-auto  bg-gray-700 dark:bg-neutral-800 rounded-lg">
-                    <search-bar class="flex p-2"> </search-bar>
-                    <div class="flex p-2">
-                        Your Songs here
-                    </div>
-                </div>
-            </div>
+            <ManageAddRemoveSongs> </ManageAddRemoveSongs>
             
             <div class="flex grow rounded-lg px-1">
                 <div class=" grow grid pt-2 mb-3">
@@ -24,15 +17,19 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
 
 <script>
 import ManageYourAlbums from './manageyouralbums.vue'
+import ManageAddRemoveSongs from './manageAddRemoveSongs.vue';
+
 export default {
     components: {
-        ManageYourAlbums
+        ManageYourAlbums,
+        ManageAddRemoveSongs
     }
 }
 </script>
