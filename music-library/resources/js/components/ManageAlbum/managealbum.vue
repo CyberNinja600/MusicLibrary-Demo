@@ -8,7 +8,7 @@
         </div>
 
         <div class="flex grow rounded-lg ">
-            <ManageAddRemoveSongs> </ManageAddRemoveSongs>
+            <ManageAddRemoveSongs :user="user"> </ManageAddRemoveSongs>
             
             <div class="flex grow rounded-lg px-1">
                 <div class=" grow grid pt-2 mb-3">
@@ -30,6 +30,11 @@ export default {
     components: {
         ManageYourAlbums,
         ManageAddRemoveSongs
-    }
+    },
+    props: {
+        user: {
+            Object
+        }
+    },
 }
 </script>

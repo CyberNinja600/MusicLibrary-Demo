@@ -3,6 +3,6 @@
 @section('content')
 
     @csrf
-    <manage-album> </manage-album>
+    <manage-album :user="{{ Auth::user()->id }}"> </manage-album>
 
 @endsection

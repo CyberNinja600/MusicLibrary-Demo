@@ -60,4 +60,21 @@ class SongInfoController extends Controller
         // Redirect back to the form with a success message or any other response you prefer
         return response()->json(['message' => $song->file_name]);
     }
+
+    
+    public function songs_by_user(Request $request){
+        $id = $request->input('id');
+        $query = $request->input('query');
+    
+        $queryBuilder = Songinfo_table::where('uploaded_by', $id);
+    
+        if ($query) {
+            $queryBuilder->where('song_name', 'LIKE', '%' . $query . '%');
+        }
+    
+        $songs = $queryBuilder->get('song_name');
+    
+        return response()->json(['songs' => $songs]);
+    }
+    
 }

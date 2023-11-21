@@ -34,6 +34,8 @@ Route::post('/songinfo-artists-table-validationAPI', [SonginfoArtistsTableContro
 use App\Http\Controllers\Api\SongInfoController;
 Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 Route::post('/uploadsonginfovalidation', [SongInfoController::class, 'songinfovalidation']);
+Route::post('/songs_by_user', [SongInfoController::class, 'songs_by_user']);
+
 
 
 
@@ -41,9 +43,8 @@ Route::post('/uploadsonginfovalidation', [SongInfoController::class, 'songinfova
 // Route::post('/upload_thumbnail_info', [SongThumbnailController::class, 'upload_thumbnail']);
 
 use App\Http\Controllers\Api\SongThumbnailController;
-Route::middleware('auth')->group(function () {
-    Route::post('/upload_thumbnail_info', [SongThumbnailController::class, 'upload_thumbnail']);
-});
+Route::post('/upload_thumbnail_info', [SongThumbnailController::class, 'upload_thumbnail']);
+
 
 
 use App\Http\Controllers\Api\PlaylistNames;

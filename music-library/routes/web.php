@@ -33,7 +33,6 @@ Route::post('/upload-song', [MusicUploadController::class, 'uploadSong']);
 Route::post('/upload-song-validation', [MusicUploadController::class, 'uploadSongValidation']);
 Route::post('/upload-progress', [MusicUploadController::class,'getUploadProgress']);
 
-
 // upload thumbnail
 use App\Http\Controllers\MusicThumbnailController;
 Route::post('/upload-song-thumbnail', [MusicThumbnailController::class, 'uploadThumbnail']);
