@@ -13,7 +13,7 @@
             <div class="flex grow rounded-lg px-1">
                 <div class=" grow grid pt-2 mb-3">
                     <div class="h-[100%] sm:h-[93%] overflow-y-auto  bg-gray-700 dark:bg-neutral-800 rounded-lg">
-                        Playlist thingy oajsdiojasiod
+                        Playlist thingy oajsdiojasiodiosdfjiosdfjio
                     </div>
                 </div>
             </div>
