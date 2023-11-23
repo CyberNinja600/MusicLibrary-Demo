@@ -72,7 +72,7 @@ class SongInfoController extends Controller
             $queryBuilder->where('song_name', 'LIKE', '%' . $query . '%');
         }
     
-        $songs = $queryBuilder->get('song_name');
+        $songs = $queryBuilder->get(['song_name','id']);
     
         return response()->json(['songs' => $songs]);
     }
