@@ -86,19 +86,24 @@ export default {
   },
 
   methods: {
-      searchSongs() {
-          // If songs are not loaded yet, make an API request
-          if (this.songs.length === 0) {
-              axios.post(`/api/songs_by_user`, { id: this.user, query: '' })
-                  .then((response) => {
-                      console.log("Making an API request");
-                      this.songs = response.data.songs;
-                  });
-          }
-      },
-      createPlaylist() {
-          // Add logic for creating a playlist
-      },
+
+        searchSongs() {
+            // If songs are not loaded yet, make an API request
+            if (this.songs.length === 0) {
+                axios.post(`/api/songs_by_user`, { id: this.user, query: '' })
+                    .then((response) => {
+                        console.log("Making an API request");
+                        this.songs = response.data.songs;
+                    });
+            }
+        },
+
+
+        //child to parent communication
+        createPlaylist() {
+            this.$emit('update-selected-songs', this.selectedSongs);
+        },
+
   },
 };
 </script>

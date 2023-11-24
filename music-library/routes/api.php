@@ -35,6 +35,7 @@ use App\Http\Controllers\Api\SongInfoController;
 Route::post('/uploadsonginfo', [SongInfoController::class, 'store']);
 Route::post('/uploadsonginfovalidation', [SongInfoController::class, 'songinfovalidation']);
 Route::post('/songs_by_user', [SongInfoController::class, 'songs_by_user']);
+Route::get('/songs_description/{id}', [SongInfoController::class, 'get_song_info']);
 
 
 

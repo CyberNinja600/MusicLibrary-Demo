@@ -8,16 +8,8 @@
         </div>
 
         <div class="flex grow rounded-lg ">
-            <ManageAddRemoveSongs :user="user"> </ManageAddRemoveSongs>
-            
-            <div class="flex grow rounded-lg px-1">
-                <div class=" grow grid pt-2 mb-3">
-                    <div class="h-[100%] sm:h-[93%] overflow-y-auto  bg-gray-700 dark:bg-neutral-800 rounded-lg">
-                        Playlist thingy oajsdiojasiodiosdfjiosdfjio
-                    </div>
-                </div>
-            </div>
-
+            <ManageAddRemoveSongs :user="user" @update-selected-songs="updateSelectedSongs"> </ManageAddRemoveSongs>
+            <CreateAlbumview :user="user" :selectedSongs="selectedSongs"></CreateAlbumview>
         </div>
     </div>
 </template>
@@ -25,16 +17,31 @@
 <script>
 import ManageYourAlbums from './manageyouralbums.vue'
 import ManageAddRemoveSongs from './manageAddRemoveSongs.vue';
+import CreateAlbumview from './createAlbumview.vue';
 
 export default {
     components: {
         ManageYourAlbums,
-        ManageAddRemoveSongs
+        ManageAddRemoveSongs,
+        CreateAlbumview
     },
+
     props: {
         user: {
             Object
         }
+    },
+    data() {
+        return {
+            selectedSongs: [], // Add this variable to store the selected songs
+        };
+    },
+
+    //gets updated when create playlist button is clicked under child component
+    methods: {
+        updateSelectedSongs(selectedSongs) {
+            this.selectedSongs = selectedSongs;
+        },
     },
 }
 </script>
