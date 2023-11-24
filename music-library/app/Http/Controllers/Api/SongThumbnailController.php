@@ -24,7 +24,5 @@ class SongThumbnailController extends Controller
 
         return response()->json(['thumbnail_file_name' => 'succesful']);
 
-        
-
     }
 }

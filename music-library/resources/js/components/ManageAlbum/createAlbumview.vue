@@ -1,28 +1,29 @@
 <template>
-    <div class="flex grow rounded-lg px-1">
-        <div class=" grow grid pt-2 mb-3">
-            <div class="h-[100%] sm:h-[93%] overflow-y-auto  bg-gray-700 dark:bg-neutral-800 rounded-lg text-white">
-                <div class="bg-red-300 px-[30px] mt-[40px]">
-
-
-                    <ul class="py-[20px]">
-
-                        <li class="flex space-x-7">
-                            <div class="">
-                                Photo here
-                            </div>
-
-                            <div class="">
-                                <div class="">
-                                    Song Title
+    <div class="flex grow rounded-lg px-1 ">
+        <div class="grow grid pt-2 mb-3 ">
+            <div class=" overflow-y-auto bg-gray-700 dark:bg-neutral-800 rounded-lg text-white overflow-x-auto">
+                <div class=" px-[30px] mt-[40px]">
+                    <ul class="py-[20px] ">
+                        <li v-for="(song, index) in songs" :key="index" class="flex space-x-7">
+                            <div class="  object-center p-2">
+                                <div class="p-2">
+                                    <img :src="getThumbnailUrl(song.thumbnail)"  class="object-cover h-[100px] w-[100px]">
                                 </div>
-
+                            </div>
+                            <div class="p-2">
                                 <div class="">
-                                    Artsist name
+                                    {{ song.song.name }}
+                                </div>
+                                <div class="">
+                                    <!-- Display multiple artists -->
+                                    <span v-for="(artist, artistIndex) in song.artists" :key="artistIndex">
+                                        {{ artist }}
+                                        <!-- Add a comma if not the last artist -->
+                                        <span v-if="artistIndex < song.artists.length - 1">, </span>
+                                    </span>
                                 </div>
                             </div>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -30,45 +31,52 @@
     </div>
 </template>
 
-
 <script>
-
+import axios from 'axios';
 
 export default {
     props: {
         user: {
-            Object
+            user: Object
         },
-        selectedSongs: {
+        selectedSongs:{
             Array
         }
     },
 
-    watch:{
-        selectedSongs:{
+    data() {
+        return {
+            songs: []
+        };
+    },
+
+    watch: {
+        selectedSongs: {
             handler: 'fetchData',
             deep: true
         }
     },
 
     methods: {
-        fetchData() {
-            // Assuming you have a function to fetch data from the database based on the song IDs
-            // Replace this with your actual function to fetch data from the database
-            const fetchDataFromDatabase = async () => {
-                // Example using axios to make an API call, replace with your actual logic
-                for (const songId of this.selectedSongs) {
-                    try {
-                        const response = await axios.get(`/api/songs/${songId}`);
-                        console.log(response.data); // handle the fetched data as needed
-                    } catch (error) {
-                        console.error(`Error fetching data for song ID ${songId}:`, error);
-                    }
-                }
-            };
+        async fetchData() {
+            try {
+                const responses = await Promise.all(
+                    this.selectedSongs.map(songId => axios.get(`/api/songs_description/${songId}`))
+                );
 
-            fetchDataFromDatabase();
+                this.songs = responses.map(response => response.data);
+                // console.log(this.songs)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        },
+
+        getThumbnailUrl(filename) {
+            // Assuming your symbolic link is named "storage", adjust if needed
+            const url = `${window.location.origin}/storage/images/${filename}`;
+            console.log('Constructed URL:', url);
+            return url;
         }
     }
-}
+};
 </script>
