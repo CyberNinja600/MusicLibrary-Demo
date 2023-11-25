@@ -3,17 +3,22 @@
         <div class="grow grid pt-2 mb-3 ">
             <div class=" overflow-y-auto bg-gray-700 dark:bg-neutral-800 rounded-lg text-white overflow-x-auto">
                 <div class=" px-[30px] mt-[40px]">
-                    <ul class="py-[20px] ">
+                    <ul class="py-[20px]  overflow-x-auto scroll-container custom-scrollbar dark:darkcustom-scrollbar">
                         <li v-for="(song, index) in songs" :key="index" class="flex space-x-7">
-                            <div class="  object-center p-2">
+                            <div class="  object-center p-2 ">
                                 <div class="p-2">
-                                    <img :src="getThumbnailUrl(song.thumbnail)"  class="object-cover h-[100px] w-[100px]">
+                                    <div class="p-1 " :style="{ backgroundImage: `url(${getThumbnailUrl(song.thumbnail)})`,backgroundSize: 'cover' }">
+                                        <img :src="getThumbnailUrl(song.thumbnail)"  class="object-cover h-[100px] w-[100px] min-h-[100px] min-w-[100px] rounded-lg">
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            <div class="p-2">
+
+                            <div class="p-2   grow self-center ">
                                 <div class="">
                                     {{ song.song.name }}
                                 </div>
+
                                 <div class="">
                                     <!-- Display multiple artists -->
                                     <span v-for="(artist, artistIndex) in song.artists" :key="artistIndex">
@@ -22,6 +27,8 @@
                                         <span v-if="artistIndex < song.artists.length - 1">, </span>
                                     </span>
                                 </div>
+
+
                             </div>
                         </li>
                     </ul>
@@ -46,7 +53,8 @@ export default {
 
     data() {
         return {
-            songs: []
+            songs: [],
+            selectedImage: ''
         };
     },
 
@@ -74,6 +82,7 @@ export default {
         getThumbnailUrl(filename) {
             // Assuming your symbolic link is named "storage", adjust if needed
             const url = `${window.location.origin}/storage/images/${filename}`;
+            this.selectedImage = url;
             console.log('Constructed URL:', url);
             return url;
         }

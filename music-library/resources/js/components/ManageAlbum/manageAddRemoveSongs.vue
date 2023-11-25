@@ -4,9 +4,9 @@
           <div class="px-2 pb-2 pt-3 grid">
 
                <!--- delete this later-->
-              <div class = "py-4" id = "test">
+              <!-- <div class = "py-4" id = "test">
                 {{selectedSongs}}
-              </div>
+              </div> -->
 
               <div class="relative bg-inherit hover:shadow-md  items-stretch">
                   <input
@@ -30,7 +30,7 @@
               </div>
           </div>
 
-          <div class="p-2 pt-[-20px]">
+          <div class="p-2 pt-[-20px] overflow-x">
               <!-- Display the filtered songs -->
               <div v-if="filteredSongs.length > 0 && searchQuery.length>0" class="bg-neutral-900 rounded-lg p-4">
                   <ul class="rounded-lg  xs:space-y-4 sm:space-y-0 ">
