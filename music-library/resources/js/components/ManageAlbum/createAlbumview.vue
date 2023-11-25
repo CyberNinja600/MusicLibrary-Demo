@@ -7,10 +7,11 @@
                         <li v-for="(song, index) in songs" :key="index" class="flex space-x-7">
                             <div class="  object-center p-2 ">
                                 <div class="p-2">
-                                    <div class="p-1 " :style="{ backgroundImage: `url(${getThumbnailUrl(song.thumbnail)})`,backgroundSize: 'cover' }">
-                                        <img :src="getThumbnailUrl(song.thumbnail)"  class="object-cover h-[100px] w-[100px] min-h-[100px] min-w-[100px] rounded-lg">
+                                    <div class="rounded-lg" :style="{ backgroundImage: `url(${getThumbnailUrl(song.thumbnail)})`,backgroundSize: 'cover' }">
+                                        <div class=" bg-opacity-20 blurred-background p-1 rounded-lg"> 
+                                            <img :src="getThumbnailUrl(song.thumbnail)"  class="object-cover h-[100px] w-[100px] min-h-[100px] min-w-[100px] rounded-lg">
+                                        </div>
                                     </div>
-                                    
                                 </div>
                             </div>
 
@@ -82,8 +83,6 @@ export default {
         getThumbnailUrl(filename) {
             // Assuming your symbolic link is named "storage", adjust if needed
             const url = `${window.location.origin}/storage/images/${filename}`;
-            this.selectedImage = url;
-            console.log('Constructed URL:', url);
             return url;
         }
     }
