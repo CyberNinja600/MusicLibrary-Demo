@@ -3,19 +3,19 @@
         <div class="grow grid pt-2 mb-3 ">
             <div class=" overflow-y-auto bg-gray-700 dark:bg-neutral-800 rounded-lg text-white overflow-x-auto">
                 <div class=" px-[30px] mt-[40px]">
-                    <ul class="py-[20px]  overflow-x-auto scroll-container custom-scrollbar dark:darkcustom-scrollbar">
-                        <li v-for="(song, index) in songs" :key="index" class="flex space-x-7">
-                            <div class="  object-center p-2 ">
+                    <ul class="py-[20px]  ">
+                        <li v-for="(song, index) in songs" :key="index" class="flex space-x-7 my-1 bg-neutral-700 pr-[20px] rounded-lg bg-opacity-29 overflow-x-auto scroll-container custom-scrollbar dark:darkcustom-scrollbar">
+                            <div class="  object-center p-2  ">
                                 <div class="p-2">
                                     <div class="rounded-lg" :style="{ backgroundImage: `url(${getThumbnailUrl(song.thumbnail)})`,backgroundSize: 'cover' }">
-                                        <div class=" bg-opacity-20 blurred-background p-1 rounded-lg"> 
+                                        <div class=" bg-opacity-20 blurred-background p-[10px] rounded-lg"> 
                                             <img :src="getThumbnailUrl(song.thumbnail)"  class="object-cover h-[100px] w-[100px] min-h-[100px] min-w-[100px] rounded-lg">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="p-2   grow self-center ">
+                            <div class="p-2   grow self-center backdrop-blur-lg bg-neutral-300 rounded-lg bg-opacity-20">
                                 <div class="">
                                     {{ song.song.name }}
                                 </div>
