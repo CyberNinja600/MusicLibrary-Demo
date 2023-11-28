@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 use Carbon\Carbon;
+use App\Models\User;
 use Carbon\Traits\Date;
 use Illuminate\Http\Request;
-use App\Models\Songinfo_table;
-use App\Http\Controllers\Controller;
-use App\Models\Songinfo_artist;
 use App\Models\Song_thumbnail;
+use App\Models\Songinfo_table;
+use App\Models\Songinfo_artist;
+use App\Http\Controllers\Controller;
 
 class SongInfoController extends Controller
 {   
@@ -95,7 +96,9 @@ class SongInfoController extends Controller
     
         // Find all artists for the given song file name
         $artists = Songinfo_artist::where('song_file_name', $fileName)->pluck('artist_name')->all();
-    
+
+        $artists = User::whereIn('id', $artists)->get(['name']);
+        
         // Find the thumbnail information based on the song file name
         $thumbnail = Song_thumbnail::where('song_file_name', $fileName)->first();
     

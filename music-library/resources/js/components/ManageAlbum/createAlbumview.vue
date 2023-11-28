@@ -1,8 +1,17 @@
 <template>
     <div class="flex grow rounded-lg px-1 ">
         <div class="grow grid pt-2 mb-3 ">
-            <div class=" overflow-y-auto bg-gray-700 dark:bg-neutral-800 rounded-lg text-white overflow-x-auto">
+            <div class=" overflow-y-auto scroll-container custom-scrollbar dark:darkcustom-scrollbar bg-gray-700 dark:bg-neutral-800 rounded-lg text-white overflow-x-auto">
                 <div class=" px-[30px] mt-[40px]">
+
+
+                    <div class="flex flex-col-reverse">
+                        <input type="text" value="" id="playlist_name" class="grow rounded-lg bg-transparent border-1 dark:border-neutral-400 px-2">
+                        <label for="playlist_name" class="py-2">Playlist Name</label>
+                    </div>
+
+
+                    <!-- album details-->
                     <ul class="py-[20px]  ">
                         <li v-for="(song, index) in songs" :key="index" class="flex space-x-7 my-1 bg-neutral-700 pr-[20px] rounded-lg bg-opacity-29 overflow-x-auto scroll-container custom-scrollbar dark:darkcustom-scrollbar">
                             <div class="  object-center p-2  ">
@@ -23,18 +32,24 @@
                                 <div class="">
                                     <!-- Display multiple artists -->
                                     <span v-for="(artist, artistIndex) in song.artists" :key="artistIndex">
-                                        {{ artist }}
+                                        {{ artist.name }}
                                         <!-- Add a comma if not the last artist -->
                                         <span v-if="artistIndex < song.artists.length - 1">, </span>
                                     </span>
                                 </div>
-
-
                             </div>
                         </li>
                     </ul>
+
+                    <!-- publish button -->
+                    <div class="flex items-center justify-center p-2 pb-4">
+                        <button class="text-neutral-50 dark:bg-neutral-600 dark:hover:bg-neutral-500 h-[50px] w-[100px] rounded-lg text-center ">
+                            Publish
+                        </button>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
