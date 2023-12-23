@@ -1,0 +1,30 @@
+{
+  "public/img/bg/photo-1550684376-efcbd6e3f031.jpeg": {
+    "file": "assets/photo-1550684376-efcbd6e3f031-2d5a0020.jpeg",
+    "src": "public/img/bg/photo-1550684376-efcbd6e3f031.jpeg"
+  },
+  "public/img/bg/vibrant-night-sky-with-stars-nebula-galaxy.jpg": {
+    "file": "assets/vibrant-night-sky-with-stars-nebula-galaxy-e6dbb7c5.jpg",
+    "src": "public/img/bg/vibrant-night-sky-with-stars-nebula-galaxy.jpg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-888d377a.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-888d377a.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "assets": [
+      "assets/vibrant-night-sky-with-stars-nebula-galaxy-e6dbb7c5.jpg",
+      "assets/photo-1550684376-efcbd6e3f031-2d5a0020.jpeg"
+    ],
+    "css": [
+      "assets/app-888d377a.css"
+    ],
+    "file": "assets/app-8df1b18b.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
