@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@layer base{
+  
+    /* Add this CSS to your stylesheet */
+    .border-on-focus:focus {
+        border: none; /* or border: transparent; */
+        outline: none; /* Optional: Remove the outline when the element is clicked */
+    }
+
+
+        /* Ensure that there's no background color applied to the image or its container */
+    .bg-transparent {
+        background-color: transparent;
+    }
+
+    
+}
+
+
+
+
+/* Add this CSS to your stylesheet */
+@layer components {
+/* Set the fill color to transparent when the range is at 0 */
+
+    
+
+input[type="range"]::-webkit-slider-thumb {
+    margin-left: -3px;
+    opacity: 0; 
+}
+
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:active::-webkit-slider-thumb {
+    opacity: 1; 
+}
+
+input[type="range"]::-moz-range-thumb {
+    opacity: 0; 
+    transition: opacity 0.2s;
+}
+
+input[type="range"]:hover::-moz-range-thumb,
+input[type="range"]:active::-moz-range-thumb {
+    opacity: 1; 
+} 
+
+input[type="range"]::-webkit-slider-runnable-track {
+    margin-right: -14px;
+    margin-left: 1px;
+    opacity: 1;
+
+    /* Adjusted track width to match thumb size */
+}
+
+input[type="range"]::-moz-range-track {
+    margin-right: -3px;
+    margin-left: -3px;
+    width: calc(100% + 6px); /* Adjusted track width to match thumb size */
+}
+
+/* WebKit-specific transitions for range input thumb */
+input[type="range"]::-webkit-slider-thumb {
+    margin-left: -3px;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease; /* 0.2s is the duration, and 'ease' is the timing function */
+}
+
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:active::-webkit-slider-thumb {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+    .scroll-container::-webkit-scrollbar {
+        width: 7px;        
+    }
+
+    .custom-scrollbar:hover::-webkit-scrollbar-thumb{
+        background: #1f2937;
+        padding: 5px;
+        border-radius: .5rem;
+        border: 3px solid #1f2937;
+
+    }
+    
+    .darkcustom-scrollbar:hover::-webkit-scrollbar-thumb{
+        background: #555;
+        padding: 5px;
+        border-radius: .5rem;
+        border: 3px solid #555;
+
+    }
+
+    .blurred-background {
+        backdrop-filter: blur(.2rem); /* Adjust the blur intensity as needed */
+    }
+    
+    
+}

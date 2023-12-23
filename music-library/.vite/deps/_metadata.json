@@ -1,0 +1,19 @@
+{
+  "hash": "2c522dde",
+  "browserHash": "bf2d8f95",
+  "optimized": {
+    "flowbite": {
+      "src": "../../node_modules/flowbite/lib/esm/index.js",
+      "file": "flowbite.js",
+      "fileHash": "4278c70e",
+      "needsInterop": false
+    },
+    "vue": {
+      "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "e56d5fb0",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}
