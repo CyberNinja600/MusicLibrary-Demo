@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('musicinfo_table', function (Blueprint $table) {
             $table->id();
             $table->string('song_name');
-            // $table->string('artist_name');
             $table->string('description');
-            $table->dateTime('release_date');
             $table->string('file_name');
+            $table->string('thumbnail_file_name');
             $table->string('uploaded_by');
+            $table->dateTime('release_date');
             $table->timestamps();
         });
     }

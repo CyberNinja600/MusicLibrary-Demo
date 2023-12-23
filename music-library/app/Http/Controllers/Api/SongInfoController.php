@@ -52,7 +52,7 @@ class SongInfoController extends Controller
         // Create a new Songinfo_table instance
         $song = new Songinfo_table();
         $song->song_name = $request->input('songTitle');
-
+        $song->thumbnail_file_name = $request->input('thumbnail_file_name');
         $song->description = $request->input('description');
         $song->release_date = $request->input('songReleaseDate');
         $song->file_name = $request->input('filename');

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('artists_song', function (Blueprint $table) {
             $table->id();
             $table->string('artist_name');
-            $table->string('song_file_name');
+            $table->bigInteger('song_id');
             $table->timestamps();
         });
     }

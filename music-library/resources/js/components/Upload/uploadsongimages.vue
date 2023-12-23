@@ -202,7 +202,6 @@ export default {
           // Continue with music file upload
           return this.uploadMusic();
         })
-        .then(() => this.thumbnailSongMap())
         .then(() => this.uploadSongInfo())
         .then(() => this.uploadFeatureArtist())
         .catch((error) => {
@@ -242,23 +241,6 @@ export default {
         });
     },
 
-    thumbnailSongMap(){
-      return axios 
-        .post('api/upload_thumbnail_info', {
-          thumbnail_file_name: this.thumbnailname,
-          song_file_name: this.filename,
-        })
-        .then((response) => {
-          console.log('Thumbnail and Song Mapped');
-        })
-        .catch((error) => {
-          console.log(this.filename);
-          console.log(this.thumbnailname);
-          console.log('Error mapping thumbnail and song');
-          console.error(error);
-        });
-    },
-
     uploadSongInfo() {
       return axios
         .post('api/uploadsonginfo', {
@@ -267,6 +249,7 @@ export default {
           songReleaseDate: this.songReleaseDate,
           filename: this.filename,
           uploadedby: this.receivedUserid,
+          thumbnail_file_name: this.thumbnailname,
         })
         .then((response) => {
           console.log(this.filename);

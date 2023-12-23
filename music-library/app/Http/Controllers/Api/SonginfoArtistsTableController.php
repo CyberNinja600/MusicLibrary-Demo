@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-use App\Http\Controllers\Controller;
-use App\Models\Songinfo_artist;
 use Illuminate\Http\Request;
+use App\Models\Songinfo_table;
+use App\Models\Songinfo_artist;
+use App\Http\Controllers\Controller;
 
 class SonginfoArtistsTableController extends Controller
 {
@@ -31,17 +32,17 @@ class SonginfoArtistsTableController extends Controller
         ]);
 
         
-        
+        $song_id = Songinfo_table::where('file_name', $request->input('receivedFilename'))->first()->id;
         $Artists = new Songinfo_artist();
         $Artists->artist_name = $request->input('receivedUserid');
-        $Artists->song_file_name = $request->input('receivedFilename');
+        $Artists->song_id = $song_id;
         $Artists->save();
 
 
         for($i=0; $i<count($request->input('selectedFeatureArtist')); $i++){
             $Artists = new Songinfo_artist();
             $Artists->artist_name = $request->input('selectedFeatureArtist')[$i];
-            $Artists->song_file_name = $request->input('receivedFilename');
+            $Artists->song_id = $song_id;
             $Artists->save();
         }
 
