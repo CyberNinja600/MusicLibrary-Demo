@@ -2,7 +2,7 @@
     <div class="w-[640px] sm:w-screen select-none">
         <!-- <div class="text-white"> {{user.name}}</div> -->
         <div id='upload'
-            class="pt-[40px] bg-gradient-to-r from-gray-100 to-gray-100 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-min-[375px]   sm:w-screen h-screen">
+            class="pt-[40px] bg-gradient-to-r from-gray-100 to-gray-100 dark:bg-gradient-to-r dark:from-neutral-900 dark:to-neutral-900  w-min-[375px]   ">
             <div class="flex items-center -mt-[40px] justify-center h-screen flex-wrap text-white">
 
                 <div v-if="uploadMessage == 'successful'"

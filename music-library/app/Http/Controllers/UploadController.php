@@ -21,7 +21,7 @@ class UploadController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function upload()
     {
         return view('manage.upload');
     }
