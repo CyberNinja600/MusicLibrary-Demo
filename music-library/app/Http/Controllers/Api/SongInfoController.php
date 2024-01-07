@@ -85,30 +85,22 @@ class SongInfoController extends Controller
         // Find the song information based on the ID
         $song = Songinfo_table::where('id', $id)->first();
     
-        // Check if the song is not found
         if (!$song) {
             return response()->json(['error' => 'Song not found'], 404);
         }
     
         // Extract song details
         $songName = $song->song_name;
-        $fileName = $song->file_name;
+        $thumbnail = (string)$song->thumbnail_file_name;
+        $artists = Songinfo_artist::where('song_id', $id)->first()->artist->name;
     
-        // Find all artists for the given song file name
-        $artists = Songinfo_artist::where('song_file_name', $fileName)->pluck('artist_name')->all();
 
-        $artists = User::whereIn('id', $artists)->get(['name']);
-        
-        // Find the thumbnail information based on the song file name
-        $thumbnail = Song_thumbnail::where('song_file_name', $fileName)->first();
-    
-        // Return the response with the extracted information
         return response()->json([
             'song' => [
                 'name' => $songName,
             ],
             'artists' => $artists,
-            'thumbnail' => $thumbnail ? $thumbnail->thumbnail_file_name : null,
+            'thumbnail' => $thumbnail,
         ]);
     }
     
