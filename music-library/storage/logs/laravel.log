@@ -17982,3 +17982,11 @@ Did you mean one of these?
 #47 E:\\XamppRepo\\htdocs\\xampp\\MusicLibrary\\music-library\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('E:\\\\XamppRepo\\\\ht...')
 #48 {main}
 "} 
+[2023-12-26 03:28:08] local.ERROR: Command "dev" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"dev\" is not defined. at E:\\XamppRepo\\htdocs\\xampp\\MusicLibrary\\music-library\\vendor\\symfony\\console\\Application.php:725)
+[stacktrace]
+#0 E:\\XamppRepo\\htdocs\\xampp\\MusicLibrary\\music-library\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->find('dev')
+#1 E:\\XamppRepo\\htdocs\\xampp\\MusicLibrary\\music-library\\vendor\\symfony\\console\\Application.php(174): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 E:\\XamppRepo\\htdocs\\xampp\\MusicLibrary\\music-library\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 E:\\XamppRepo\\htdocs\\xampp\\MusicLibrary\\music-library\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 {main}
+"} 
