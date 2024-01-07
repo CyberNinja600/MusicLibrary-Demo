@@ -99,7 +99,7 @@ export default {
             if (this.songs.length === 0) {
                 axios.post(`/api/songs_by_user`, { id: this.user, query: '' })
                     .then((response) => {
-                        console.log("Making an API request");
+                        console.log("Making an API request", response);
                         this.songs = response.data.songs;
                     });
             }
