@@ -5,9 +5,9 @@ use Carbon\Carbon;
 use App\Models\User;
 use Carbon\Traits\Date;
 use Illuminate\Http\Request;
-use App\Models\Song_thumbnail;
-use App\Models\Songinfo_table;
-use App\Models\Songinfo_artist;
+use App\Models\SongThumbnail;
+use App\Models\MusicInfo;
+use App\Models\ArtistsSong;
 use App\Http\Controllers\Controller;
 
 class SongInfoController extends Controller
@@ -49,8 +49,8 @@ class SongInfoController extends Controller
             'uploadedby' => 'required|numeric|max:255',
         ]);
         
-        // Create a new Songinfo_table instance
-        $song = new Songinfo_table();
+        // Create a new MusicInfo instance
+        $song = new MusicInfo();
         $song->song_name = $request->input('songTitle');
         $song->thumbnail_file_name = $request->input('thumbnail_file_name');
         $song->description = $request->input('description');
@@ -69,7 +69,7 @@ class SongInfoController extends Controller
         $id = $request->input('id');
         $query = $request->input('query');
     
-        $queryBuilder = Songinfo_table::where('uploaded_by', $id);
+        $queryBuilder = MusicInfo::where('uploaded_by', $id);
     
         if ($query) {
             $queryBuilder->where('song_name', 'LIKE', '%' . $query . '%');
@@ -83,7 +83,7 @@ class SongInfoController extends Controller
 
     public function get_song_info($id){
         // Find the song information based on the ID
-        $song = Songinfo_table::where('id', $id)->first();
+        $song = MusicInfo::where('id', $id)->first();
     
         if (!$song) {
             return response()->json(['error' => 'Song not found'], 404);
@@ -92,7 +92,7 @@ class SongInfoController extends Controller
         // Extract song details
         $songName = $song->song_name;
         $thumbnail = (string)$song->thumbnail_file_name;
-        $artists = Songinfo_artist::where('song_id', $id)->first()->artist->name;
+        $artists = ArtistsSong::where('song_id', $id)->first()->artist->name;
     
 
         return response()->json([

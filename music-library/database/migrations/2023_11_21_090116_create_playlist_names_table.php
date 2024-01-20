@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('playlist_names', function (Blueprint $table) {
             $table->id();
-            $table->string('artist_name');
+            $table->string('creator_name');
             $table->string('album_name');
             $table->string('playlist_img');
             $table->timestamps();

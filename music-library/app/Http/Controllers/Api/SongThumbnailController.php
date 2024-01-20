@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Song_thumbnail;
+use App\Models\SongThumbnail;
 
 
 class SongThumbnailController extends Controller
@@ -17,7 +17,7 @@ class SongThumbnailController extends Controller
         ]);
 
         // return two variable for thumbnail_file_name and song_file_name key
-        $song = new Song_thumbnail();
+        $song = new SongThumbnail();
         $song->thumbnail_file_name = $request->input('thumbnail_file_name');
         $song->song_file_name = $request->input('song_file_name');
         $song->save();
