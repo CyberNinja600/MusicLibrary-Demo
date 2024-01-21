@@ -87,18 +87,15 @@ export default {
                 const responses = await Promise.all(
                     this.selectedSongs.map(songId => axios.get(`/api/songs_description/${songId}`))
                 );
-
                 this.songs = responses.map(response => response.data);
-                // console.log(this.songs)
+                console.log(this.songs)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         },
 
         getThumbnailUrl(filename) {
-            // Assuming your symbolic link is named "storage", adjust if needed
-            console.log(filename);
-            const url = `${window.location.origin}/storage/images/${filename}`;
+            const url = `/${window.location.origin}/storage/images/${filename}`;
             return url;
         }
     }
