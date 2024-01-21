@@ -97,6 +97,7 @@ export default {
 
         getThumbnailUrl(filename) {
             // Assuming your symbolic link is named "storage", adjust if needed
+            console.log(filename);
             const url = `${window.location.origin}/storage/images/${filename}`;
             return url;
         }
